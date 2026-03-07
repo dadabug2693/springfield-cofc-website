@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jesus — What We Believe | Springfield Church of Christ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #5b2d8e; --purple-dark: #3d1a6e; --purple-light: #7a3fb5;
+    --green: #3a9c4e; --gray-dark: #2e2e2e; --gray-mid: #6b6b6b;
+    --gray-light: #f4f4f6; --white: #ffffff;
+    --accent: #3a9c4e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Lato', sans-serif; color: var(--gray-dark); background: var(--white); }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: #1a0533;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 72px;
+    border-bottom: 2px solid var(--purple-light);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo { width: 48px; height: 48px; border-radius: 6px; object-fit: cover; }
+  .nav-name { font-family: 'Cinzel', serif; color: var(--white); font-size: 1rem; font-weight: 600; line-height: 1.25; }
+  .nav-back { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; transition: color 0.2s; }
+  .nav-back:hover { color: white; }
+  @media (max-width: 768px) { nav { padding: 0 20px; } }
+
+  .belief-hero {
+    background: #3a4a5c;
+    padding: 140px 24px 80px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .belief-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 60%, rgba(91,45,142,0.3) 0%, transparent 70%);
+  }
+  .belief-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+  .belief-icon-large { font-size: 4rem; display: block; margin-bottom: 24px; }
+  .belief-eyebrow { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: #3a9c4e; font-weight: 700; margin-bottom: 12px; }
+  .belief-hero h1 { font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 6vw, 4rem); color: white; font-weight: 700; margin-bottom: 16px; }
+  .belief-hero p { font-size: 1.15rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+  .beliefs-strip { background: #1a0533; display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid rgba(255,255,255,0.08); }
+  @media (max-width: 600px) { .beliefs-strip { grid-template-columns: repeat(2,1fr); } }
+  .strip-item { padding: 18px 16px; text-align: center; text-decoration: none; color: rgba(255,255,255,0.5); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; border-right: 1px solid rgba(255,255,255,0.07); transition: background 0.2s, color 0.2s; }
+  .strip-item:hover { background: rgba(255,255,255,0.06); color: white; }
+  .strip-item.active { color: #3a9c4e; border-bottom: 2px solid #3a9c4e; }
+
+  .belief-body { max-width: 760px; margin: 0 auto; padding: 72px 24px; }
+  .belief-content-block { margin-bottom: 52px; padding-bottom: 52px; border-bottom: 1px solid var(--gray-light); }
+  .belief-content-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .belief-content-block h3 {
+    font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--purple-dark);
+    font-weight: 700; margin-bottom: 18px; padding-left: 16px;
+    border-left: 4px solid #3a9c4e;
+  }
+  .belief-content-block p { font-size: 1.02rem; line-height: 1.9; color: var(--gray-mid); margin-bottom: 14px; }
+  .belief-content-block p:last-child { margin-bottom: 0; }
+
+  .back-cta { background: var(--gray-light); padding: 56px 24px; text-align: center; }
+  .back-cta p { color: var(--gray-mid); margin-bottom: 24px; font-size: 1rem; }
+  .btn { display: inline-block; background: var(--purple-light); color: white; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; transition: background 0.2s; margin: 0 8px 8px; }
+  .btn:hover { background: var(--purple-dark); }
+  .btn.outline { background: transparent; color: var(--purple-dark); border: 2px solid var(--purple-light); }
+  .btn.outline:hover { background: var(--purple-light); color: white; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="springfield-cofc.html" class="nav-brand">
+    <img src="data:image/jpeg;base64,/9j/4QE8RXhpZgAATU0AKgAAAAgACAESAAMAAAABAAEAAAEaAAUAAAABAAAAbgEbAAUAAAABAAAAdgEoAAMAAAABAAIAAAExAAIAAABOAAAAfgE7AAIAAAAMAAAAzAITAAMAAAABAAEAAIdpAAQAAAABAAAA2AAAAAAAAABIAAAAAQAAAEgAAAABQ2FudmEgKFJlbmRlcmVyKSBkb2M9REFHeTlSd1gzUTggdXNlcj1VQURyWG0yNl9hVSBicmFuZD1CQURyWHExbGVmcyB0ZW1wbGF0ZT0AZGFkYWJ1ZzI2OTMAAAeQAAAHAAAABDAyMjGRAQAHAAAABAECAwCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAAWigAwAEAAAAAQAAAWikBgADAAAAAQAAAAAAAAAAAAD/4QuKaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6QXR0cmliPSJodHRwOi8vbnMuYXR0cmlidXRpb24uY29tL2Fkcy8xLjAvIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQ2FudmEgKFJlbmRlcmVyKSBkb2M9REFHeTlSd1gzUTggdXNlcj1VQURyWG0yNl9hVSBicmFuZD1CQURyWHExbGVmcyB0ZW1wbGF0ZT0iPiA8ZGM6Y3JlYXRvcj4gPHJkZjpTZXE+IDxyZGY6bGk+ZGFkYWJ1ZzI2OTM8L3JkZjpsaT4gPC9yZGY6U2VxPiA8L2RjOmNyZWF0b3I+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+VW50aXRsZWQgZGVzaWduIC0gMTwvcmRmOmxpPiA8L3JkZjpBbHQ+IDwvZGM6dGl0bGU+IDxBdHRyaWI6QWRzPiA8cmRmOlNlcT4gPHJkZjpsaSBBdHRyaWI6VG91Y2hUeXBlPSIyIiBBdHRyaWI6Q3JlYXRlZD0iMjAyNS0wOS0xNCIgQXR0cmliOkV4dElkPSJmY2I3NjI2Zi01MDBjLTQxY2YtYTBiZi00MWE1MGYxYjA4OTMiIEF0dHJpYjpGYklkPSI1MjUyNjU5MTQxNzk1ODAiLz4gPC9yZGY6U2VxPiA8L0F0dHJpYjpBZHM+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDw/eHBhY2tldCBlbmQ9InciPz4A/9sAhAAQEBAQEBAbEBAbJxsbGyc0JycnJzRCNDQ0NDRCUEJCQkJCQlBQUFBQUFBQX19fX19fb29vb299fX19fX19fX19ARMUFCAeIDceHjeDWUlZg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4P/3QAEABf/wAARCAFoAWgDASIAAhEBAxEB/8QBogAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoLEAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+foBAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKCxEAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoqwluzQNN0C1XoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//Q8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApyqWYKvU02tbTYMnzm7cCplLlVyJyUVcsXEYhsDGOwFYNdHff8erfhXOVnRd4meHd43CiiitjcKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0fP6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAfHGZHCL1NdRGixoEXoKztNt9q+c3U9K1K4687vlR5+JqXfKinf/8AHs34VztdFf8A/Hs34Vzta4f4TfDfAFFFFbnSFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//9Lz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKmgiM0ojH+RUNb2nweXH5h6t/Ks6kuVXM6s+WNy+qhVCjoKdRRXnnklK//wCPZvwrna6K/wD+PZvwrna7cP8ACelhvgCiiitzoCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9Pz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAs2kHnShew610oGBgVTsoPJhGercmrtcNad2ebiKnM7IKKKKwOco6h/wAex/CuerodQ/49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BRRRQAUUUUAf/9Tz+iiigAooooAKKKKACiiigAooooAKKKKALsT7x7ipaz1YocirysGGRXTTnfQ3hLoOpaSitjQWiiigApKWkoAjl/1ZqjV6X/VmqNctXcwqbhWyv3RWNWyv3RWmG3ZdAdS0lLXYdIUUUUAFJRRQBVun2ptHes6pZn3uTUVebUlzO5xTldhRRRUEBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//V8/ooooAKKKKACiiigAooooAKKKKACiiigAqWJ9h9qiooTsC0NKiq0Mn8B/CrNdkJXR0xd0LRSUtWUFJS0lAEcn+rNUavSf6s1Rrlq7mFTcK2V+6Kxq2l+6PpWmG3ZdAWlpKWuw6QoopKACq9w+yPA6nirFZdw+9+Og4rGtK0TKrKyIKKKK4DkCiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1vP6KKKACiiigAooooAKKKKACiiigAooooAKKKKACrsUm8YPUVSpykqciqhLlKi7GhRTVYMMinV2I6ELSUUUxkcv3DVGr0n+rNUa5au5hU3CtpfuisWtpfuj6Vpht2XQFpaSlrsOkKSlpKAIZn2Rk1lVZuX3PtHQVWrz60ryOOpK7CiiisjMKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/X8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAJYn2H2q7WbVmGT+A/hWtOdtDSEraFmiiiuo3GSf6s1Qq/J/qz9KoVy1dzCpuFbS/dH0rFrZX7o+laYbdl0B1LSUV2HSFMkfy0LU+qF0+SEHasqsuWJE5WRUPPNJRRXnnEFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9Dz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKALsUm4YPUVLWcpKnIq+jBhkV00530N4S6DZPuGqNX5P8AVmqFZ1dyKm4VtL90fSsWtpfuj6Vpht2XQFooorsOkazBVLHtWOx3Hcau3b8BBVGuGvK7sclWV3YKKKKwMgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP//R8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqSN9h9qjooWgLQvSf6s4qjUgkwhQ1HVzlcqTuFbS/dH0rFraX7o+lbYbdmtAWkJwM0tVbp9qbR3rpnLlVzeTsrlGRt7lqZRRXmnCFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/0vP6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAraX7o+lYtbS/dH0rpw27N6AtZMz73J7dBV64k2JgdTWZRiJfZCtLoFFFFcxgFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/0/P6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAraX7o+lYtackmyEepHFb0Ha7NqTtcpzvvfjoOKgoorFu+pk3cKKKKQgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//U8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACp5n3EAdAKgop36BcKKKKQBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9Xz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//9k=" alt="Logo" class="nav-logo">
+    <span class="nav-name">Springfield<br>Church of Christ</span>
+  </a>
+  <a href="springfield-cofc.html#beliefs" class="nav-back">&#8592; Back to Home</a>
+</nav>
+
+<div class="belief-hero">
+  <div class="belief-hero-inner">
+    <span class="belief-icon-large">&#x271D;</span>
+    <div class="belief-eyebrow">What We Believe</div>
+    <h1>Jesus</h1>
+    <p>Savior, Crucified, Risen, Returning</p>
+  </div>
+</div>
+
+<div class="beliefs-strip">
+  <a href="belief-god.html" class="strip-item">&#x1F54A; God</a><a href="belief-jesus.html" class="strip-item active">&#x271D; Jesus</a><a href="belief-scripture.html" class="strip-item">&#x1F4D6; Scripture</a><a href="belief-response.html" class="strip-item">&#x26EA; Response</a>
+</div>
+
+<div class="belief-body">
+  
+        <div class="belief-content-block">
+          <h3>The Son of God</h3>
+          <p>We believe that Jesus Christ is the Son of God — fully divine and fully human. He is the second person of the Trinity, who existed from eternity and through whom all things were made (John 1:3). He entered human history through the miraculous virgin birth, living a sinless life as both the perfect example for humanity and the only sufficient sacrifice for sin.</p>
+        </div>
+        <div class="belief-content-block">
+          <h3>His Death and Resurrection</h3>
+          <p>The crucifixion of Jesus is the central event of human history. On the cross, Jesus bore the penalty for the sins of all humanity, offering Himself as the perfect atoning sacrifice. Three days later, He rose bodily from the dead — defeating sin, death, and the grave. His resurrection is not a symbol or a metaphor; it is the historical cornerstone of the Christian faith (1 Corinthians 15:3-4).</p>
+        </div>
+        <div class="belief-content-block">
+          <h3>Lord and Savior</h3>
+          <p>Jesus ascended to the right hand of the Father, where He reigns as Lord over all creation. He is the only mediator between God and humanity (1 Timothy 2:5). Salvation is found in no one else — for there is no other name under heaven given to mankind by which we must be saved (Acts 4:12). He is our High Priest, our Advocate, and our coming King.</p>
+        </div>
+        <div class="belief-content-block">
+          <h3>His Return</h3>
+          <p>We believe that Jesus will return — visibly, bodily, and gloriously — to judge the living and the dead and to establish His kingdom in its fullness. This blessed hope (Titus 2:13) shapes how we live, giving us urgency in sharing the Gospel and confidence in the face of suffering. Until He returns, we are called to faithfully proclaim His name to all nations.</p>
+        </div>
+        <div class="belief-content-block">
+          <h3>Key Scriptures</h3>
+          <p>John 3:16 — For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.</p><p>1 Corinthians 15:3-4 — Christ died for our sins according to the Scriptures, he was buried, he was raised on the third day.</p><p>Acts 4:12 — Salvation is found in no one else, for there is no other name under heaven given to mankind by which we must be saved.</p>
+        </div>
+</div>
+
+<div class="back-cta">
+  <p>Want to learn more or have questions about our faith? We would love to hear from you.</p>
+  <a href="mailto:admin@springfieldcofc.com" class="btn">Contact Us</a>
+  <a href="springfield-cofc.html" class="btn outline">&#8592; Back to Home</a>
+</div>
+
+</body>
+</html>
