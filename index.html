@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -439,7 +440,7 @@
 <!-- PRAYER CTA STRIP -->
 <div class="prayer-cta-strip">
   <span>🙏 &nbsp;Need prayer? We'd be honored to pray for you.</span>
-  <a href="#prayer" class="prayer-cta-btn">Request Prayer</a>
+  <a href="#prayer" onclick="setTimeout(()=>document.getElementById('prayer-modal').style.display='flex',400);return true;" class="prayer-cta-btn">Request Prayer</a>
 </div>
 
 <section class="hero" id="home">
@@ -715,7 +716,7 @@
     <div class="prayer-text">
       <h2>We Want To<br><span>Pray For You</span></h2>
       <p>No matter what you're going through, you don't have to face it alone. Our congregation would be honored to lift you up in prayer.</p>
-      <a href="/cdn-cgi/l/email-protection#442520292d2a043734362d2a23222d212820272b22276a272b297b3731262e212730791436253d21366416213531213730" class="btn-prayer">🙏 &nbsp;Request Prayer</a>
+      <button onclick="document.getElementById('prayer-modal').style.display='flex'" class="btn-prayer">🙏 &nbsp;Request Prayer</button>
     </div>
     <div class="prayer-visual">
       <div class="prayer-verse">
