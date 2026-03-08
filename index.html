@@ -6,16 +6,11 @@
 <title>Springfield Church of Christ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
 <style>
-  :root {
-    --purple:#5b2d8e;--purple-dark:#3d1a6e;--purple-light:#7a3fb5;
-    --green:#3a9c4e;--gray-dark:#2e2e2e;--gray-mid:#6b6b6b;
-    --gray-light:#f4f4f6;--white:#ffffff;--gold:#c9a84c;
-  }
+  :root{--purple:#5b2d8e;--purple-dark:#3d1a6e;--purple-light:#7a3fb5;--green:#3a9c4e;--gray-dark:#2e2e2e;--gray-mid:#6b6b6b;--gray-light:#f4f4f6;--white:#ffffff;--gold:#c9a84c;}
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:'Lato',sans-serif;color:var(--gray-dark);background:var(--white);}
-
-  /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#1a0533;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:72px;border-bottom:2px solid var(--purple-light);}
   .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
   .nav-logo{width:48px;height:48px;border-radius:6px;object-fit:cover;}
@@ -27,14 +22,10 @@
   .btn-live:hover{background:#2d8040!important;}
   .btn-give{background:var(--gold)!important;color:#1a0533!important;padding:10px 22px!important;border-radius:4px!important;font-weight:700!important;transition:background .2s!important;}
   .btn-give:hover{background:#b8943e!important;}
-
-  /* PRAYER CTA STRIP */
   .prayer-cta-strip{position:fixed;top:72px;left:0;right:0;z-index:99;background:linear-gradient(90deg,var(--purple-dark),var(--purple));display:flex;align-items:center;justify-content:center;gap:20px;padding:10px 24px;border-bottom:1px solid rgba(255,255,255,.12);flex-wrap:wrap;}
   .prayer-cta-strip span{color:rgba(255,255,255,.88);font-size:.875rem;letter-spacing:.03em;}
   .prayer-cta-btn{background:var(--white);color:var(--purple-dark);padding:6px 20px;border-radius:50px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.05em;white-space:nowrap;transition:background .2s,transform .2s;cursor:pointer;border:none;}
   .prayer-cta-btn:hover{background:#f0eaff;transform:translateY(-1px);}
-
-  /* HERO */
   .hero{min-height:100vh;background:linear-gradient(135deg,#1a0533 0%,#3d1a6e 50%,#1e0d40 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:150px 24px 80px;position:relative;overflow:hidden;}
   .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.18;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(91,45,142,.5) 0%,transparent 65%),radial-gradient(ellipse at 30% 70%,rgba(58,156,78,.15) 0%,transparent 55%);z-index:1;}
@@ -54,14 +45,11 @@
   .hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.4);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2;}
   .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:scrollPulse 2s ease-in-out infinite;}
   @keyframes scrollPulse{0%,100%{opacity:.4;}50%{opacity:1;}}
-
   section{padding:90px 24px;}
   .section-inner{max-width:1100px;margin:0 auto;}
   .section-label{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--purple-light);font-weight:700;margin-bottom:12px;}
   .section-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--purple-dark);font-weight:700;margin-bottom:20px;line-height:1.2;}
   .section-divider{width:60px;height:3px;background:linear-gradient(to right,var(--purple-light),var(--green));margin-bottom:36px;border-radius:2px;}
-
-  /* SERVICES */
   .services-section{background:var(--gray-light);border-top:4px solid var(--purple-light);}
   .services-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px;margin-top:48px;}
   .day-block{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 14px rgba(91,45,142,.1);}
@@ -73,8 +61,6 @@
   .service-time-badge{background:var(--gray-light);border-radius:4px;padding:4px 10px;font-size:.8rem;font-weight:700;color:var(--purple-dark);white-space:nowrap;min-width:70px;text-align:center;border:1px solid rgba(91,45,142,.15);}
   .service-desc strong{display:block;font-size:.95rem;color:var(--gray-dark);font-weight:700;margin-bottom:2px;}
   .service-desc span{font-size:.82rem;color:var(--gray-mid);}
-
-  /* ABOUT */
   .about-section{background:var(--white);}
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
   .about-text p{font-size:1.05rem;line-height:1.85;color:var(--gray-mid);margin-bottom:20px;}
@@ -83,8 +69,6 @@
   .about-photo-caption{background:var(--purple-dark);padding:16px 24px;display:flex;align-items:center;gap:12px;}
   .about-photo-caption img{width:36px;height:36px;border-radius:4px;object-fit:cover;}
   .about-photo-caption span{font-family:'Cinzel',serif;color:rgba(255,255,255,.85);font-size:.85rem;letter-spacing:.05em;}
-
-  /* BELIEFS */
   .beliefs-section{background:var(--white);padding:0;}
   .beliefs-grid{display:grid;grid-template-columns:repeat(4,1fr);}
   .belief-card{padding:60px 36px;display:flex;flex-direction:column;align-items:center;text-align:center;text-decoration:none;position:relative;overflow:hidden;transition:filter .2s;}
@@ -100,8 +84,6 @@
   .belief-card.jesus .belief-title,.belief-card.scripture .belief-title,.belief-card.response .belief-title{color:var(--green);}
   .belief-desc{font-size:.95rem;line-height:1.65;opacity:.78;margin-bottom:28px;flex:1;}
   .belief-read{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.7;transition:letter-spacing .2s;}
-
-  /* WATCH */
   .watch-section{background:linear-gradient(135deg,#1a0533,#3d1a6e);color:var(--white);}
   .watch-section .section-title{color:var(--white);}
   .watch-section .section-label{color:var(--green);}
@@ -119,8 +101,6 @@
   .watch-btn:hover{opacity:.85;}
   .watch-btn.green{background:var(--green);color:white;}
   .watch-btn.purple{background:var(--purple-light);color:white;}
-
-  /* EVENTS */
   .events-section{background:var(--gray-light);}
   .events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;}
   .event-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;}
@@ -140,8 +120,6 @@
   .event-details{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px;}
   .event-detail-tag{background:var(--gray-light);border-radius:4px;padding:5px 12px;font-size:.8rem;color:var(--gray-dark);font-weight:600;}
   .event-detail-tag.green{background:rgba(58,156,78,.12);color:#1a6e2e;}
-
-  /* CONTACT */
   .contact-section{background:var(--white);}
   .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
   .contact-info-block{display:flex;flex-direction:column;gap:28px;}
@@ -152,8 +130,6 @@
   .contact-item-text a:hover{color:var(--purple-light);}
   .map-frame{border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.12);height:340px;}
   .map-frame iframe{width:100%;height:100%;border:none;}
-
-  /* PRAYER SECTION */
   .prayer-section{background:#111111;padding:80px 24px;position:relative;overflow:hidden;}
   .prayer-section::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(91,45,142,.25) 0%,transparent 65%);pointer-events:none;}
   .prayer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
@@ -166,24 +142,12 @@
   .prayer-verse{background:rgba(255,255,255,.05);border-left:3px solid var(--purple-light);border-radius:0 8px 8px 0;padding:20px 24px;}
   .prayer-verse blockquote{font-family:'Cinzel',serif;font-style:italic;color:rgba(255,255,255,.85);font-size:.95rem;line-height:1.7;margin-bottom:8px;}
   .prayer-verse cite{font-size:.75rem;color:var(--purple-light);letter-spacing:.15em;text-transform:uppercase;font-style:normal;font-weight:700;}
-
-  /* NEWSLETTER */
   .newsletter-section{background:linear-gradient(135deg,var(--purple-dark),#2a0d52);padding:70px 24px;text-align:center;}
   .newsletter-section h2{font-family:'Cinzel',serif;color:var(--white);font-size:clamp(1.5rem,3vw,2.2rem);margin-bottom:12px;}
   .newsletter-section p{color:rgba(255,255,255,.65);margin-bottom:36px;font-size:1rem;}
-  .newsletter-form{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
-  .newsletter-form input{flex:1;min-width:220px;padding:14px 20px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;font-family:'Lato',sans-serif;font-size:.95rem;outline:none;}
-  .newsletter-form input::placeholder{color:rgba(255,255,255,.45);}
-  .newsletter-form input:focus{border-color:var(--purple-light);}
-  .newsletter-form button{background:var(--green);color:white;border:none;padding:14px 28px;border-radius:4px;font-family:'Lato',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
-  .newsletter-form button:hover{background:#2d8040;}
-
-  /* FOOTER SCRIPTURE */
   .footer-scripture-banner{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-left:4px solid var(--purple-light);border-radius:8px;padding:28px 36px;text-align:center;margin-bottom:40px;}
   .footer-scripture-banner blockquote{font-family:'Cinzel',serif;font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,.92);font-style:italic;line-height:1.7;margin-bottom:10px;}
   .footer-scripture-banner cite{font-size:.8rem;color:var(--purple-light);letter-spacing:.18em;text-transform:uppercase;font-style:normal;font-weight:700;}
-
-  /* FOOTER */
   footer{background:#0d0520;padding:48px 24px 24px;color:rgba(255,255,255,.6);}
   .footer-inner{max-width:1100px;margin:0 auto;}
   .footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-bottom:40px;flex-wrap:wrap;}
@@ -196,8 +160,6 @@
   .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.875rem;transition:color .2s;}
   .footer-links a:hover{color:rgba(255,255,255,.9);}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;text-align:center;font-size:.8rem;color:rgba(255,255,255,.3);}
-
-  /* PRAYER MODAL */
   .prayer-modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:24px;}
   .prayer-modal{background:white;border-radius:12px;max-width:520px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:modalIn .25s ease;}
   @keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
@@ -205,7 +167,7 @@
   .prayer-modal-header h3{font-family:'Cinzel',serif;color:white;font-size:1.2rem;font-weight:700;}
   .modal-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:1.5rem;cursor:pointer;line-height:1;padding:0;transition:color .2s;}
   .modal-close:hover{color:white;}
-  .prayer-modal-body{padding:32px;}
+  .prayer-modal-body{padding:32px;max-height:70vh;overflow-y:auto;}
   .prayer-form-group{margin-bottom:20px;}
   .prayer-form-group label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3d1a6e;margin-bottom:8px;}
   .prayer-form-group input,.prayer-form-group textarea,.prayer-form-group select{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:6px;font-family:'Lato',sans-serif;font-size:.95rem;color:#2e2e2e;outline:none;transition:border-color .2s;}
@@ -214,16 +176,10 @@
   .prayer-submit{width:100%;background:#3d1a6e;color:white;border:none;padding:14px;border-radius:6px;font-family:'Lato',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
   .prayer-submit:hover{background:#5b2d8e;}
   .prayer-note{font-size:.8rem;color:#999;text-align:center;margin-top:12px;}
-
   @media(max-width:900px){.beliefs-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:768px){
-    nav{padding:0 20px;} .nav-links{display:none;}
-    .about-grid,.contact-grid,.prayer-inner{grid-template-columns:1fr;}
-    .services-days{grid-template-columns:1fr;}
-  }
+  @media(max-width:768px){nav{padding:0 20px;} .nav-links{display:none;} .about-grid,.contact-grid,.prayer-inner{grid-template-columns:1fr;} .services-days{grid-template-columns:1fr;}}
   @media(max-width:500px){.beliefs-grid{grid-template-columns:1fr;}}
 </style>
-  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -383,7 +339,7 @@
       <div class="contact-info-block">
         <div class="contact-item"><div class="contact-icon">&#128205;</div><div class="contact-item-text"><h4>Address</h4><p>1620 Buck Creek Lane<br>Springfield, OH 45502</p></div></div>
         <div class="contact-item"><div class="contact-icon">&#128222;</div><div class="contact-item-text"><h4>Phone</h4><a href="tel:9373227207">937-322-7207</a></div></div>
-        <div class="contact-item"><div class="contact-icon">&#9993;</div><div class="contact-item-text"><h4>Email</h4><a href="/cdn-cgi/l/email-protection#2d4c494044436d5e5d5f44434a4b444841494e424b4e034e4240"><span class="__cf_email__" data-cfemail="68090c050106281b181a01060f0e010d040c0b070e0b460b0705">[email&#160;protected]</span></a></div></div>
+        <div class="contact-item"><div class="contact-icon">&#9993;</div><div class="contact-item-text"><h4>Email</h4><a href="mailto:admin@springfieldcofc.com">admin@springfieldcofc.com</a></div></div>
         <div class="contact-item"><div class="contact-icon">&#128336;</div><div class="contact-item-text"><h4>Service Times</h4><p>Sun Bible Class: 9:30 AM<br>Sun Worship: 10:30 AM<br>Sun Evening Programs: 5:00 PM<br>Wed Ladies Study: 10:00 AM<br>Wed Evening Study: 6:00 PM</p></div></div>
         <div class="contact-item"><div class="contact-icon">&#9654;</div><div class="contact-item-text"><h4>Watch Online</h4><a href="https://www.youtube.com/@springfieldchurchofchrist2770" target="_blank">youtube.com/@springfieldchurchofchrist2770</a></div></div>
       </div>
@@ -401,7 +357,7 @@
     <div style="width:60px;height:3px;background:linear-gradient(to right,#3a9c4e,#a0d4a8);margin:0 auto 28px;border-radius:2px;"></div>
     <p style="color:rgba(255,255,255,.75);font-size:1.05rem;line-height:1.8;max-width:520px;margin:0 auto 40px;">Your generosity helps us serve our congregation and community. Giving is safe, simple, and can be set up as a one-time or recurring gift.</p>
     <button class="tithely-give-button" data-form="5e8c7c25-6865-11ee-90fc-1260ab546d11" style="background-color:#00DB72;font-family:inherit;font-weight:bold;font-size:19px;padding:15px 70px;border-radius:4px;cursor:pointer;background-image:none;color:white;text-shadow:none;display:inline-block;float:none;border:none;">Give</button>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://static.tithely.com/give/give.js" defer></script>
+    <script src="https://static.tithely.com/give/give.js" defer></script>
     <p style="color:rgba(255,255,255,.4);font-size:.78rem;margin-top:24px;letter-spacing:.05em;">Secure giving powered by Tithe.ly</p>
   </div>
 </section>
@@ -526,7 +482,7 @@
           <li><a href="https://www.youtube.com/@springfieldchurchofchrist2770" target="_blank">YouTube</a></li>
           <li><a href="https://www.springfieldcofc.com" target="_blank">springfieldcofc.com</a></li>
           <li><a href="tel:9373227207">937-322-7207</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#543530393d3a142724263d3a33323d313830373b32377a373b39"><span class="__cf_email__" data-cfemail="553431383c3b152625273c3b32333c303931363a33367b363a38">[email&#160;protected]</span></a></li>
+          <li><a href="mailto:admin@springfieldcofc.com">admin@springfieldcofc.com</a></li>
         </ul>
       </div>
     </div>
@@ -566,4 +522,13 @@
             <option>Other</option>
           </select>
         </div>
-        <div class="prayer-form-grou
+        <div class="prayer-form-group"><label>Your Prayer Request</label><textarea name="request" placeholder="Share as much or as little as you'd like..." required></textarea></div>
+        <button type="submit" class="prayer-submit">Submit Prayer Request</button>
+        <p class="prayer-note">Your request will be shared with our prayer team with care and confidentiality.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
