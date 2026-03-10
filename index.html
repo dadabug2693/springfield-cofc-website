@@ -160,14 +160,14 @@
   .footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.875rem;transition:color .2s;}
   .footer-links a:hover{color:rgba(255,255,255,.9);}
   .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:20px;text-align:center;font-size:.8rem;color:rgba(255,255,255,.3);}
-  .prayer-modal-overlay{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:24px;}
-  .prayer-modal{background:white;border-radius:12px;max-width:520px;width:100%;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:modalIn .25s ease;display:flex;flex-direction:column;max-height:92vh;}
+  .prayer-modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:9999;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);align-items:flex-start;justify-content:center;padding:40px 24px;overflow-y:auto;}
+  .prayer-modal{background:white;border-radius:12px;max-width:520px;width:100%;box-shadow:0 24px 80px rgba(0,0,0,.4);animation:modalIn .25s ease;margin:auto;}
   @keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(16px);}to{opacity:1;transform:scale(1) translateY(0);}}
   .prayer-modal-header{background:linear-gradient(135deg,#1a0533,#3d1a6e);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
   .prayer-modal-header h3{font-family:'Cinzel',serif;color:white;font-size:1.2rem;font-weight:700;}
   .modal-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:1.5rem;cursor:pointer;line-height:1;padding:0;transition:color .2s;}
   .modal-close:hover{color:white;}
-  .prayer-modal-body{padding:32px;overflow-y:auto;flex:1;}
+  .prayer-modal-body{padding:32px;}
   .prayer-form-group{margin-bottom:20px;}
   .prayer-form-group label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3d1a6e;margin-bottom:8px;}
   .prayer-form-group input,.prayer-form-group textarea,.prayer-form-group select{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:6px;font-family:'Lato',sans-serif;font-size:.95rem;color:#2e2e2e;outline:none;transition:border-color .2s;}
