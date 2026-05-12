@@ -26,7 +26,14 @@
   .prayer-cta-strip span{color:rgba(255,255,255,.88);font-size:.875rem;letter-spacing:.03em;}
   .prayer-cta-btn{background:var(--white);color:var(--purple-dark);padding:6px 20px;border-radius:50px;font-size:.8rem;font-weight:700;text-decoration:none;letter-spacing:.05em;white-space:nowrap;transition:background .2s,transform .2s;cursor:pointer;border:none;}
   .prayer-cta-btn:hover{background:#f0eaff;transform:translateY(-1px);}
-  .hero{min-height:100vh;background:linear-gradient(135deg,#1a0533 0%,#3d1a6e 50%,#1e0d40 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:150px 24px 80px;position:relative;overflow:hidden;}
+  .vbs-ticker{position:fixed;top:116px;left:0;right:0;z-index:98;background:linear-gradient(90deg,#071e2b,#0d3d30,#071e2b);border-bottom:2px solid rgba(78,205,196,.3);height:40px;overflow:hidden;display:flex;align-items:center;}
+  .vbs-ticker-track{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 45s linear infinite;}
+  .vbs-ticker-track span{color:rgba(255,255,255,.8);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+  .vbs-ticker-track a{color:#4ecdc4;text-decoration:none;transition:color .15s;}
+  .vbs-ticker-track a:hover{color:white;}
+  @keyframes tickerScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(max-width:600px){.vbs-ticker{top:158px;}}
+  .hero{min-height:100vh;background:linear-gradient(135deg,#1a0533 0%,#3d1a6e 50%,#1e0d40 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:192px 24px 80px;position:relative;overflow:hidden;}
   .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.18;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 30%,rgba(91,45,142,.5) 0%,transparent 65%),radial-gradient(ellipse at 30% 70%,rgba(58,156,78,.15) 0%,transparent 55%);z-index:1;}
   .hero-content{position:relative;z-index:2;max-width:760px;}
@@ -202,6 +209,12 @@
 <div class="prayer-cta-strip">
   <span>&#128591; &nbsp;Need prayer? We'd be honored to pray for you.</span>
   <button class="prayer-cta-btn" onclick="document.getElementById('prayer-modal').style.display='flex'">Request Prayer</button>
+</div>
+
+<div class="vbs-ticker">
+  <div class="vbs-ticker-track">
+    <span>&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#127956;&nbsp; TRUE NORTH VBS &nbsp;&bull;&nbsp; June 8&ndash;12, 2026 &nbsp;&bull;&nbsp; Ages 4&ndash;8th Grade &nbsp;&bull;&nbsp; Free Event &nbsp;&bull;&nbsp; <a href="vbs.html#register">Register Now &rarr;</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  </div>
 </div>
 
 <section class="hero" id="home">
