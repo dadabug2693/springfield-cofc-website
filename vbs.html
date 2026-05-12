@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>True North VBS 2026 | Springfield Church of Christ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--purple:#5b2d8e;--purple-dark:#3d1a6e;--purple-light:#7a3fb5;--green:#3a9c4e;--teal:#0e4a5c;--teal-light:#1a7a8a;--aurora1:#3a9c4e;--aurora2:#7a3fb5;--aurora3:#1a7a8a;--gray-dark:#2e2e2e;--gray-mid:#6b6b6b;--gray-light:#f4f4f6;--white:#ffffff;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Lato',sans-serif;color:var(--gray-dark);background:var(--white);}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#0a1a2e;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:72px;border-bottom:2px solid var(--teal-light);}
+  .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+  .nav-logo{width:48px;height:48px;border-radius:6px;object-fit:cover;}
+  .nav-name{font-family:'Cinzel',serif;color:var(--white);font-size:1rem;font-weight:600;line-height:1.25;letter-spacing:.04em;}
+  .nav-back{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem;letter-spacing:.06em;transition:color .2s;display:flex;align-items:center;gap:6px;}
+  .nav-back:hover{color:white;}
+  @media(max-width:768px){nav{padding:0 20px;}}
+
+  /* HERO */
+  .hero{min-height:100vh;background:linear-gradient(160deg,#040d1a 0%,#0a2535 40%,#0d3d30 75%,#1a1040 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 40%,rgba(26,122,138,.3) 0%,transparent 55%),radial-gradient(ellipse at 70% 25%,rgba(91,45,142,.4) 0%,transparent 50%),radial-gradient(ellipse at 50% 80%,rgba(58,156,78,.2) 0%,transparent 50%);pointer-events:none;}
+  .aurora-lines{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .aurora-line{position:absolute;height:2px;border-radius:999px;opacity:.18;animation:auroraFloat 8s ease-in-out infinite;}
+  .aurora-line:nth-child(1){width:60%;top:22%;left:-5%;background:linear-gradient(90deg,transparent,#3a9c4e,#1a7a8a,transparent);animation-delay:0s;}
+  .aurora-line:nth-child(2){width:80%;top:35%;left:10%;background:linear-gradient(90deg,transparent,#7a3fb5,#1a7a8a,transparent);animation-delay:2s;height:3px;opacity:.14;}
+  .aurora-line:nth-child(3){width:50%;top:48%;left:20%;background:linear-gradient(90deg,transparent,#3a9c4e,transparent);animation-delay:4s;}
+  @keyframes auroraFloat{0%,100%{transform:translateY(0) scaleX(1);}50%{transform:translateY(-18px) scaleX(1.05);}}
+  .mountains{position:absolute;bottom:0;left:0;right:0;height:200px;pointer-events:none;}
+  .hero-content{position:relative;z-index:2;max-width:800px;}
+  .hero-eyebrow{font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--aurora3);font-weight:700;margin-bottom:16px;}
+  .hero-logo-ring{display:inline-flex;align-items:center;justify-content:center;width:90px;height:90px;border-radius:50%;background:rgba(26,122,138,.2);border:2px solid rgba(26,122,138,.5);margin-bottom:28px;font-size:2.5rem;}
+  .hero h1{font-family:'Cinzel',serif;font-size:clamp(3rem,8vw,5.5rem);color:var(--white);font-weight:700;line-height:1;margin-bottom:12px;letter-spacing:.04em;}
+  .hero h1 .north{color:#4ecdc4;}
+  .hero-sub{font-family:'Cinzel',serif;font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase;margin-bottom:24px;}
+  .hero-tagline{font-size:1.15rem;color:rgba(255,255,255,.78);font-style:italic;margin-bottom:48px;line-height:1.6;}
+  .hero-dates-pill{display:inline-flex;align-items:center;gap:20px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:12px 28px;margin-bottom:40px;flex-wrap:wrap;justify-content:center;}
+  .hero-dates-pill span{color:rgba(255,255,255,.9);font-size:.95rem;font-weight:700;letter-spacing:.05em;}
+  .hero-dates-pill .dot{width:5px;height:5px;border-radius:50%;background:#4ecdc4;opacity:.7;}
+  .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn-register{background:var(--green);color:white;padding:16px 40px;border-radius:4px;text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;transition:background .2s,transform .2s;display:inline-block;}
+  .btn-register:hover{background:#2d8040;transform:translateY(-2px);}
+  .btn-details{background:transparent;color:white;padding:16px 36px;border-radius:4px;text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;border:2px solid rgba(255,255,255,.35);transition:border-color .2s,transform .2s;display:inline-block;}
+  .btn-details:hover{border-color:white;transform:translateY(-2px);}
+
+  /* QUICK FACTS BAR */
+  .facts-bar{background:#0a2535;border-bottom:1px solid rgba(78,205,196,.2);}
+  .facts-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0;}
+  .fact-item{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.07);}
+  .fact-item:last-child{border-right:none;}
+  .fact-icon{font-size:1.6rem;display:block;margin-bottom:8px;}
+  .fact-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#4ecdc4;font-weight:700;margin-bottom:4px;}
+  .fact-value{font-family:'Cinzel',serif;color:white;font-size:.95rem;font-weight:600;line-height:1.3;}
+  @media(max-width:600px){.facts-inner{grid-template-columns:repeat(2,1fr);}.fact-item:nth-child(2){border-right:none;}.fact-item:nth-child(3){border-right:1px solid rgba(255,255,255,.07);}}
+
+  /* SECTIONS */
+  section{padding:90px 24px;}
+  .section-inner{max-width:1100px;margin:0 auto;}
+  .section-label{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--teal-light);font-weight:700;margin-bottom:12px;}
+  .section-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:#0a2535;font-weight:700;margin-bottom:20px;line-height:1.2;}
+  .section-divider{width:60px;height:3px;background:linear-gradient(to right,#1a7a8a,var(--green));margin-bottom:36px;border-radius:2px;}
+
+  /* ABOUT VBS */
+  .about-section{background:var(--gray-light);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .about-text p{font-size:1.05rem;line-height:1.85;color:var(--gray-mid);margin-bottom:20px;}
+  .about-text p:last-child{margin-bottom:0;}
+  .about-visual{background:linear-gradient(160deg,#040d1a,#0d3d30);border-radius:12px;padding:48px 36px;text-align:center;position:relative;overflow:hidden;}
+  .about-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(26,122,138,.4) 0%,transparent 60%);}
+  .about-visual-inner{position:relative;z-index:1;}
+  .vbs-title-display{font-family:'Cinzel',serif;font-size:2.8rem;font-weight:700;color:white;line-height:1;margin-bottom:8px;}
+  .vbs-title-display .north-big{color:#4ecdc4;}
+  .vbs-tagline-display{font-size:.9rem;color:rgba(255,255,255,.6);letter-spacing:.15em;text-transform:uppercase;margin-bottom:32px;}
+  .vbs-details-list{list-style:none;text-align:left;}
+  .vbs-details-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.8);font-size:.95rem;}
+  .vbs-details-list li:last-child{border-bottom:none;}
+  .vbs-details-list .detail-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
+  @media(max-width:768px){.about-grid{grid-template-columns:1fr;}}
+
+  /* ACTIVITIES */
+  .activities-section{background:white;}
+  .activities-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:8px;}
+  .activity-card{background:var(--gray-light);border-radius:10px;padding:36px 28px;text-align:center;border-top:3px solid transparent;transition:transform .2s,box-shadow .2s;}
+  .activity-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(10,37,53,.1);}
+  .activity-card:nth-child(1){border-top-color:#1a7a8a;}
+  .activity-card:nth-child(2){border-top-color:var(--green);}
+  .activity-card:nth-child(3){border-top-color:var(--purple-light);}
+  .activity-card:nth-child(4){border-top-color:#e8934e;}
+  .activity-card:nth-child(5){border-top-color:#4ecdc4;}
+  .activity-icon{font-size:2.8rem;display:block;margin-bottom:18px;}
+  .activity-card h3{font-family:'Cinzel',serif;font-size:1rem;color:#0a2535;font-weight:700;margin-bottom:10px;letter-spacing:.05em;}
+  .activity-card p{font-size:.9rem;color:var(--gray-mid);line-height:1.65;}
+
+  /* SCHEDULE */
+  .schedule-section{background:#0a2535;}
+  .schedule-section .section-title{color:white;}
+  .schedule-section .section-label{color:#4ecdc4;}
+  .schedule-section .section-divider{background:linear-gradient(to right,#4ecdc4,var(--green));}
+  .schedule-intro{color:rgba(255,255,255,.65);font-size:1.05rem;line-height:1.8;max-width:580px;margin-bottom:48px;}
+  .schedule-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;}
+  .schedule-day{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:28px 20px;text-align:center;transition:background .2s;}
+  .schedule-day:hover{background:rgba(78,205,196,.12);}
+  .sday-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#4ecdc4;font-weight:700;margin-bottom:6px;}
+  .sday-date{font-family:'Cinzel',serif;font-size:1.8rem;color:white;font-weight:700;line-height:1;margin-bottom:6px;}
+  .sday-month{font-size:.75rem;color:rgba(255,255,255,.5);letter-spacing:.1em;text-transform:uppercase;}
+  .schedule-time-block{margin-top:40px;background:rgba(78,205,196,.1);border:1px solid rgba(78,205,196,.25);border-radius:10px;padding:28px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+  .schedule-time-block .time-icon{font-size:2rem;}
+  .schedule-time-info h4{font-family:'Cinzel',serif;color:white;font-size:1.1rem;margin-bottom:4px;}
+  .schedule-time-info p{color:rgba(255,255,255,.65);font-size:.95rem;}
+
+  /* REGISTRATION FORM */
+  .register-section{background:var(--gray-light);}
+  .register-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:60px;align-items:start;}
+  .register-info h3{font-family:'Cinzel',serif;font-size:1.4rem;color:#0a2535;margin-bottom:16px;}
+  .register-info p{font-size:1rem;line-height:1.8;color:var(--gray-mid);margin-bottom:20px;}
+  .register-info .info-list{list-style:none;}
+  .register-info .info-list li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #e0e0e0;font-size:.95rem;color:var(--gray-mid);}
+  .register-info .info-list li:last-child{border-bottom:none;}
+  .register-info .info-list .li-icon{font-size:1rem;flex-shrink:0;margin-top:2px;}
+  .form-card{background:white;border-radius:12px;box-shadow:0 4px 24px rgba(10,37,53,.1);overflow:hidden;}
+  .form-header{background:linear-gradient(135deg,#0a2535,#0d3d30);padding:24px 32px;}
+  .form-header h3{font-family:'Cinzel',serif;color:white;font-size:1.2rem;font-weight:700;}
+  .form-header p{color:rgba(255,255,255,.65);font-size:.85rem;margin-top:4px;}
+  .form-body{padding:32px;}
+  .form-group{margin-bottom:20px;}
+  .form-group label{display:block;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0a2535;margin-bottom:8px;}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 16px;border:1px solid #ddd;border-radius:6px;font-family:'Lato',sans-serif;font-size:.95rem;color:var(--gray-dark);outline:none;transition:border-color .2s;background:white;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#1a7a8a;}
+  .form-group textarea{resize:vertical;min-height:90px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .form-submit{width:100%;background:var(--green);color:white;border:none;padding:14px;border-radius:6px;font-family:'Lato',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;margin-top:8px;}
+  .form-submit:hover{background:#2d8040;}
+  .form-note{font-size:.8rem;color:var(--gray-mid);text-align:center;margin-top:12px;line-height:1.5;}
+  @media(max-width:900px){.register-grid{grid-template-columns:1fr;}}
+  @media(max-width:540px){.form-row{grid-template-columns:1fr;}}
+
+  /* LOCATION */
+  .location-section{background:white;}
+  .location-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .location-detail{display:flex;gap:16px;align-items:flex-start;margin-bottom:24px;}
+  .location-icon{width:44px;height:44px;background:#e8f4f6;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;border:1px solid rgba(26,122,138,.2);}
+  .location-text h4{font-family:'Cinzel',serif;font-size:.85rem;color:#0a2535;font-weight:600;margin-bottom:4px;letter-spacing:.05em;}
+  .location-text p,.location-text a{color:var(--gray-mid);font-size:.95rem;line-height:1.6;text-decoration:none;}
+  .location-text a:hover{color:var(--teal-light);}
+  .map-frame{border-radius:10px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.12);height:320px;}
+  .map-frame iframe{width:100%;height:100%;border:none;}
+  @media(max-width:768px){.location-grid{grid-template-columns:1fr;}}
+
+  /* FOOTER */
+  footer{background:#040d1a;padding:40px 24px 24px;}
+  .footer-inner{max-width:1100px;margin:0 auto;}
+  .footer-scripture{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-left:4px solid #4ecdc4;border-radius:8px;padding:24px 32px;text-align:center;margin-bottom:36px;}
+  .footer-scripture blockquote{font-family:'Cinzel',serif;font-size:1.1rem;color:rgba(255,255,255,.85);font-style:italic;line-height:1.7;margin-bottom:8px;}
+  .footer-scripture cite{font-size:.75rem;color:#4ecdc4;letter-spacing:.15em;text-transform:uppercase;font-style:normal;font-weight:700;}
+  .footer-links-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:28px;}
+  .footer-links-row a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.875rem;transition:color .2s;}
+  .footer-links-row a:hover{color:rgba(255,255,255,.9);}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;text-align:center;font-size:.8rem;color:rgba(255,255,255,.25);}
+
+  /* SUCCESS STATE */
+  .form-success{display:none;text-align:center;padding:40px 32px;}
+  .form-success .success-icon{font-size:3rem;margin-bottom:16px;}
+  .form-success h3{font-family:'Cinzel',serif;color:#0a2535;font-size:1.4rem;margin-bottom:12px;}
+  .form-success p{color:var(--gray-mid);line-height:1.7;}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="data:image/jpeg;base64,/9j/4QE8RXhpZgAATU0AKgAAAAgACAESAAMAAAABAAEAAAEaAAUAAAABAAAAbgEbAAUAAAABAAAAdgEoAAMAAAABAAIAAAExAAIAAABOAAAAfgE7AAIAAAAMAAAAzAITAAMAAAABAAEAAIdpAAQAAAABAAAA2AAAAAAAAABIAAAAAQAAAEgAAAABQ2FudmEgKFJlbmRlcmVyKSBkb2M9REFHeTlSd1gzUTggdXNlcj1VQURyWG0yNl9hVSBicmFuZD1CQURyWHExbGVmcyB0ZW1wbGF0ZT0AZGFkYWJ1ZzI2OTMAAAeQAAAHAAAABDAyMjGRAQAHAAAABAECAwCgAAAHAAAABDAxMDCgAQADAAAAAQABAACgAgAEAAAAAQAAAWigAwAEAAAAAQAAAWikBgADAAAAAQAAAAAAAAAAAAD/4QuKaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA2LjAuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6QXR0cmliPSJodHRwOi8vbnMuYXR0cmlidXRpb24uY29tL2Fkcy8xLjAvIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQ2FudmEgKFJlbmRlcmVyKSBkb2M9REFHeTlSd1gzUTggdXNlcj1VQURyWG0yNl9hVSBicmFuZD1CQURyWHExbGVmcyB0ZW1wbGF0ZT0iPiA8ZGM6Y3JlYXRvcj4gPHJkZjpTZXE+IDxyZGY6bGk+ZGFkYWJ1ZzI2OTM8L3JkZjpsaT4gPC9yZGY6U2VxPiA8L2RjOmNyZWF0b3I+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+VW50aXRsZWQgZGVzaWduIC0gMTwvcmRmOmxpPiA8L3JkZjpBbHQ+IDwvZGM6dGl0bGU+IDxBdHRyaWI6QWRzPiA8cmRmOlNlcT4gPHJkZjpsaSBBdHRyaWI6VG91Y2hUeXBlPSIyIiBBdHRyaWI6Q3JlYXRlZD0iMjAyNS0wOS0xNCIgQXR0cmliOkV4dElkPSJmY2I3NjI2Zi01MDBjLTQxY2YtYTBiZi00MWE1MGYxYjA4OTMiIEF0dHJpYjpGYklkPSI1MjUyNjU5MTQxNzk1ODAiLz4gPC9yZGY6U2VxPiA8L0F0dHJpYjpBZHM+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDw/eHBhY2tldCBlbmQ9InciPz4A/9sAhAAQEBAQEBAbEBAbJxsbGyc0JycnJzRCNDQ0NDRCUEJCQkJCQlBQUFBQUFBQX19fX19fb29vb299fX19fX19fX19ARMUFCAeIDceHjeDWUlZg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4P/3QAEABf/wAARCAFoAWgDASIAAhEBAxEB/8QBogAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoLEAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+foBAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKCxEAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoqwluzQNN0C1XoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//Q8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigApyqWYKvU02tbTYMnzm7cCplLlVyJyUVcsXEYhsDGOwFYNdHff8erfhXOVnRd4meHd43CiiitjcKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/0fP6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAfHGZHCL1NdRGixoEXoKztNt9q+c3U9K1K4687vlR5+JqXfKinf/8AHs34VztdFf8A/Hs34Vzta4f4TfDfAFFFFbnSFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//9Lz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKmgiM0ojH+RUNb2nweXH5h6t/Ks6kuVXM6s+WNy+qhVCjoKdRRXnnklK//wCPZvwrna6K/wD+PZvwrna7cP8ACelhvgCiiitzoCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA/9Pz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAs2kHnShew610oGBgVTsoPJhGercmrtcNad2ebiKnM7IKKKKwOco6h/wAex/CuerodQ/49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BRRRQAUUUUAf/9Tz+iiigAooooAKKKKACiiigAooooAKKKKALsT7x7ipaz1YocirysGGRXTTnfQ3hLoOpaSitjQWiiigApKWkoAjl/1ZqjV6X/VmqNctXcwqbhWyv3RWNWyv3RWmG3ZdAdS0lLXYdIUUUUAFJRRQBVun2ptHes6pZn3uTUVebUlzO5xTldhRRRUEBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAH//V8/ooooAKKKKACiiigAooooAKKKKACiiigAqWJ9h9qiooTsC0NKiq0Mn8B/CrNdkJXR0xd0LRSUtWUFJS0lAEcn+rNUavSf6s1Rrlq7mFTcK2V+6Kxq2l+6PpWmG3ZdAWlpKWuw6QoopKACq9w+yPA6nirFZdw+9+Og4rGtK0TKrKyIKKKK4DkCiiigAooooAKKKKACiiigAooooAKKKKACiiigD/1vP6KKKACiiigAooooAKKKKACiiigAooooAKKKKACrsUm8YPUVSpykqciqhLlKi7GhRTVYMMinV2I6ELSUUUxkcv3DVGr0n+rNUa5au5hU3CtpfuisWtpfuj6Vpht2XQFpaSlrsOkKSlpKAIZn2Rk1lVZuX3PtHQVWrz60ryOOpK7CiiisjMKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/X8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAJYn2H2q7WbVmGT+A/hWtOdtDSEraFmiiiuo3GSf6s1Qq/J/qz9KoVy1dzCpuFbS/dH0rFrZX7o+laYbdl0B1LSUV2HSFMkfy0LU+qF0+SEHasqsuWJE5WRUPPNJRRXnnEFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9Dz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKALsUm4YPUVLWcpKnIq+jBhkV00530N4S6DZPuGqNX5P8AVmqFZ1dyKm4VtL90fSsWtpfuj6Vpht2XQFooorsOkazBVLHtWOx3Hcau3b8BBVGuGvK7sclWV3YKKKKwMgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP//R8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqSN9h9qjooWgLQvSf6s4qjUgkwhQ1HVzlcqTuFbS/dH0rFraX7o+lbYbdmtAWkJwM0tVbp9qbR3rpnLlVzeTsrlGRt7lqZRRXmnCFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/0vP6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAraX7o+lYtbS/dH0rpw27N6AtZMz73J7dBV64k2JgdTWZRiJfZCtLoFFFFcxgFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/0/P6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAraX7o+lYtackmyEepHFb0Ha7NqTtcpzvvfjoOKgoorFu+pk3cKKKKQgooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//U8/ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACp5n3EAdAKgop36BcKKKKQBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB/9Xz+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//9k=" alt="Springfield Church of Christ Logo" class="nav-logo">
+    <span class="nav-name">Springfield<br>Church of Christ</span>
+  </a>
+  <a href="index.html" class="nav-back">&#8592; Back to Home</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="aurora-lines">
+    <div class="aurora-line"></div>
+    <div class="aurora-line"></div>
+    <div class="aurora-line"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Springfield Church of Christ &middot; Summer 2026</div>
+    <div class="hero-logo-ring">&#127956;</div>
+    <h1>TRUE <span class="north">NORTH</span></h1>
+    <div class="hero-sub">Vacation Bible School</div>
+    <p class="hero-tagline">"Trusting Jesus in a Wild World"</p>
+    <div class="hero-dates-pill">
+      <span>June 8 &ndash; 12, 2026</span>
+      <div class="dot"></div>
+      <span>6:00 &ndash; 8:30 PM</span>
+      <div class="dot"></div>
+      <span>Ages 4 &ndash; 8th Grade</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#register" class="btn-register">Register Now</a>
+      <a href="#about" class="btn-details">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK FACTS -->
+<div class="facts-bar">
+  <div class="facts-inner">
+    <div class="fact-item">
+      <span class="fact-icon">&#128197;</span>
+      <div class="fact-label">When</div>
+      <div class="fact-value">June 8&ndash;12, 2026</div>
+    </div>
+    <div class="fact-item">
+      <span class="fact-icon">&#128336;</span>
+      <div class="fact-label">Time</div>
+      <div class="fact-value">6:00 – 8:30 PM</div>
+    </div>
+    <div class="fact-item">
+      <span class="fact-icon">&#128104;&#8205;&#128105;&#8205;&#128103;&#8205;&#128102;</span>
+      <div class="fact-label">Ages</div>
+      <div class="fact-value">Age 4 – 8th Grade</div>
+    </div>
+    <div class="fact-item">
+      <span class="fact-icon">&#128205;</span>
+      <div class="fact-label">Location</div>
+      <div class="fact-value">1620 Buck Creek Ln<br>Springfield, OH</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT VBS -->
+<section class="about-section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label">About the Adventure</div>
+        <h2 class="section-title">An Amazing Alaskan Journey</h2>
+        <div class="section-divider"></div>
+        <p>Join us this summer at the Springfield Church of Christ for an incredible adventure! At True North VBS, we will guide students on the ultimate Alaskan journey — where northern lights glow over majestic mountains, racing rivers, and glistening glaciers.</p>
+        <p>As kids trek the tundra, they'll explore how easy it is to lose sight of what's true in our wild world today. Through crafts, games, snacks, and story adventures, everything points them toward Jesus — our True North who is a faithful friend we can always trust.</p>
+        <p>This is a <strong>free event</strong> open to all children ages 4 through 8th grade. Invite your friends and neighbors — everyone is welcome!</p>
+      </div>
+      <div class="about-visual">
+        <div class="about-visual-inner">
+          <div class="vbs-title-display">TRUE<br><span class="north-big">NORTH</span></div>
+          <div class="vbs-tagline-display">Trusting Jesus &middot; Wild World</div>
+          <ul class="vbs-details-list">
+            <li><span class="detail-icon">&#127956;</span> Alaskan adventure theme</li>
+            <li><span class="detail-icon">&#9733;</span> Ages 4 through 8th Grade</li>
+            <li><span class="detail-icon">&#127381;</span> Free &mdash; open to the community</li>
+            <li><span class="detail-icon">&#128197;</span> June 8&ndash;12 &middot; 6:00&ndash;8:30 PM nightly</li>
+            <li><span class="detail-icon">&#128205;</span> 1620 Buck Creek Ln, Springfield OH</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="activities-section">
+  <div class="section-inner">
+    <div class="section-label">What to Expect</div>
+    <h2 class="section-title">Five Nights of Adventure</h2>
+    <div class="section-divider"></div>
+    <div class="activities-grid">
+      <div class="activity-card">
+        <span class="activity-icon">&#127912;</span>
+        <h3>Crafts</h3>
+        <p>Hands-on creative projects inspired by the Alaskan wilderness and each night's lesson.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">&#9917;</span>
+        <h3>Games</h3>
+        <p>High-energy, fun activities designed to get kids moving and build teamwork.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">&#127829;</span>
+        <h3>Snacks</h3>
+        <p>Delicious themed snacks each night to keep the energy up on the tundra trail.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">&#128214;</span>
+        <h3>Story Adventures</h3>
+        <p>Engaging Bible stories that show kids how Jesus is the True North we can always trust.</p>
+      </div>
+      <div class="activity-card">
+        <span class="activity-icon">&#127925;</span>
+        <h3>Worship Music</h3>
+        <p>Upbeat, memorable songs that bring the adventure to life and anchor each lesson.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule-section">
+  <div class="section-inner">
+    <div class="section-label">Save the Dates</div>
+    <h2 class="section-title">Five Nights of True North</h2>
+    <div class="section-divider"></div>
+    <p class="schedule-intro">Join us every evening from June 8th through 12th. Each night is a brand new chapter of the Alaskan adventure!</p>
+    <div class="schedule-days">
+      <div class="schedule-day">
+        <div class="sday-label">Night 1</div>
+        <div class="sday-date">8</div>
+        <div class="sday-month">June 2026</div>
+      </div>
+      <div class="schedule-day">
+        <div class="sday-label">Night 2</div>
+        <div class="sday-date">9</div>
+        <div class="sday-month">June 2026</div>
+      </div>
+      <div class="schedule-day">
+        <div class="sday-label">Night 3</div>
+        <div class="sday-date">10</div>
+        <div class="sday-month">June 2026</div>
+      </div>
+      <div class="schedule-day">
+        <div class="sday-label">Night 4</div>
+        <div class="sday-date">11</div>
+        <div class="sday-month">June 2026</div>
+      </div>
+      <div class="schedule-day">
+        <div class="sday-label">Night 5</div>
+        <div class="sday-date">12</div>
+        <div class="sday-month">June 2026</div>
+      </div>
+    </div>
+    <div class="schedule-time-block">
+      <span class="time-icon">&#128336;</span>
+      <div class="schedule-time-info">
+        <h4>Every Night: 6:00 – 8:30 PM</h4>
+        <p>Doors open at 5:45 PM. All five nights are free and open to the community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section class="register-section" id="register">
+  <div class="section-inner">
+    <div class="section-label">Sign Up</div>
+    <h2 class="section-title">Register for VBS</h2>
+    <div class="section-divider"></div>
+    <div class="register-grid">
+      <div class="register-info">
+        <h3>Ready for the Adventure?</h3>
+        <p>Registration helps us prepare enough supplies, snacks, and materials for every child. It's quick, easy, and free!</p>
+        <ul class="info-list">
+          <li><span class="li-icon">&#9989;</span> Free for all ages 4 – 8th Grade</li>
+          <li><span class="li-icon">&#9989;</span> No church membership required</li>
+          <li><span class="li-icon">&#9989;</span> Friends &amp; neighbors welcome</li>
+          <li><span class="li-icon">&#9989;</span> Register one form per child</li>
+          <li><span class="li-icon">&#128222;</span> Questions? Call 937-322-7207</li>
+          <li><span class="li-icon">&#9993;</span> Email admin@springfieldcofc.com</li>
+        </ul>
+      </div>
+      <div class="form-card">
+        <div class="form-header">
+          <h3>&#127956; &nbsp;VBS Registration</h3>
+          <p>True North &middot; June 8&ndash;12, 2026</p>
+        </div>
+        <div class="form-body" id="form-container">
+          <!-- Netlify hidden form for detection -->
+          <form name="vbs-registration" data-netlify="true" netlify-honeypot="bot-field" hidden>
+            <input type="text" name="child-name">
+            <input type="text" name="child-age">
+            <input type="text" name="grade">
+            <input type="text" name="parent-name">
+            <input type="email" name="email">
+            <input type="tel" name="phone">
+            <textarea name="allergies"></textarea>
+            <textarea name="notes"></textarea>
+          </form>
+
+          <form name="vbs-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="vbs-form">
+            <input type="hidden" name="form-name" value="vbs-registration">
+            <input type="text" name="bot-field" style="display:none" aria-hidden="true">
+
+            <div class="form-group">
+              <label>Child's Full Name *</label>
+              <input type="text" name="child-name" placeholder="First and last name" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Child's Age *</label>
+                <input type="number" name="child-age" placeholder="e.g. 7" min="4" max="15" required>
+              </div>
+              <div class="form-group">
+                <label>Grade (Fall 2026) *</label>
+                <select name="grade" required>
+                  <option value="">Select grade...</option>
+                  <option>Pre-K / Kindergarten</option>
+                  <option>1st Grade</option>
+                  <option>2nd Grade</option>
+                  <option>3rd Grade</option>
+                  <option>4th Grade</option>
+                  <option>5th Grade</option>
+                  <option>6th Grade</option>
+                  <option>7th Grade</option>
+                  <option>8th Grade</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Parent / Guardian Name *</label>
+              <input type="text" name="parent-name" placeholder="Your full name" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input type="email" name="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" placeholder="937-555-0000">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Allergies or Dietary Needs</label>
+              <textarea name="allergies" placeholder="List any food allergies or dietary restrictions (or leave blank if none)"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Anything else we should know?</label>
+              <textarea name="notes" placeholder="Special needs, questions, or other notes (optional)"></textarea>
+            </div>
+            <button type="submit" class="form-submit">&#127956; Register for VBS</button>
+            <p class="form-note">Registering multiple children? Please submit one form per child. This event is free &mdash; no payment required.</p>
+          </form>
+
+          <div class="form-success" id="form-success">
+            <div class="success-icon">&#127956;</div>
+            <h3>You're Registered!</h3>
+            <p>Thank you for signing up for True North VBS! We can't wait to see you June 8&ndash;12. If you have any questions, call us at <strong>937-322-7207</strong> or email <strong>admin@springfieldcofc.com</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section" id="location">
+  <div class="section-inner">
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title">Getting Here</h2>
+    <div class="section-divider"></div>
+    <div class="location-grid">
+      <div>
+        <div class="location-detail">
+          <div class="location-icon">&#128205;</div>
+          <div class="location-text">
+            <h4>Address</h4>
+            <p>1620 Buck Creek Lane<br>Springfield, OH 45502</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-icon">&#128336;</div>
+          <div class="location-text">
+            <h4>VBS Hours</h4>
+            <p>June 8&ndash;12, 2026<br>Doors open 5:45 PM &middot; Program 6:00&ndash;8:30 PM</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-icon">&#128222;</div>
+          <div class="location-text">
+            <h4>Phone</h4>
+            <a href="tel:9373227207">937-322-7207</a>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-icon">&#9993;</div>
+          <div class="location-text">
+            <h4>Email</h4>
+            <a href="mailto:admin@springfieldcofc.com">admin@springfieldcofc.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6011.024154974815!2d-83.73042926293839!3d39.94253378176889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883f505051ce179f%3A0xcafe61a38a9008dc!2s1620%20Buck%20Creek%20Ln%2C%20Springfield%2C%20OH%2045502!5e0!3m2!1sen!2sus!4v1773144081435!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-scripture">
+      <blockquote>"Your word is a lamp to my feet and a light to my path."</blockquote>
+      <cite>&mdash; Psalm 119:105</cite>
+    </div>
+    <div class="footer-links-row">
+      <a href="index.html">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#events">Events</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="#register">Register for VBS</a>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Springfield Church of Christ &middot; 1620 Buck Creek Lane, Springfield, OH 45502 &middot; 937-322-7207</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('vbs-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const form = this;
+    const data = new FormData(form);
+    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString()})
+      .then(() => {
+        document.getElementById('vbs-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+        document.getElementById('form-success').scrollIntoView({behavior:'smooth', block:'center'});
+      })
+      .catch(() => { form.submit(); });
+  });
+</script>
+
+</body>
+</html>
