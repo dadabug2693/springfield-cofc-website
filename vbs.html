@@ -495,13 +495,23 @@
     e.preventDefault();
     const form = this;
     const data = new FormData(form);
-    fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString()})
-      .then(() => {
+    fetch('https://formspree.io/f/xvzllvkn', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(response => {
+      if (response.ok) {
         document.getElementById('vbs-form').style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
         document.getElementById('form-success').scrollIntoView({behavior:'smooth', block:'center'});
-      })
-      .catch(() => { form.submit(); });
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    })
+    .catch(() => {
+      alert('Something went wrong. Please try again.');
+    });
   });
 </script>
 
