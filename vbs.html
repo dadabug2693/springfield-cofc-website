@@ -363,21 +363,7 @@
           <p>True North &middot; June 8&ndash;12, 2026</p>
         </div>
         <div class="form-body" id="form-container">
-          <!-- Netlify hidden form for detection -->
-          <form name="vbs-registration" data-netlify="true" netlify-honeypot="bot-field" hidden>
-            <input type="text" name="child-name">
-            <input type="text" name="child-age">
-            <input type="text" name="grade">
-            <input type="text" name="parent-name">
-            <input type="email" name="email">
-            <input type="tel" name="phone">
-            <textarea name="allergies"></textarea>
-            <textarea name="notes"></textarea>
-          </form>
-
-          <form name="vbs-registration" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="vbs-form">
-            <input type="hidden" name="form-name" value="vbs-registration">
-            <input type="text" name="bot-field" style="display:none" aria-hidden="true">
+<form action="https://formspree.io/f/xvzllvkn" method="POST" id="vbs-form">
 
             <div class="form-group">
               <label>Child's Full Name *</label>
