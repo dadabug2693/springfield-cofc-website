@@ -113,6 +113,9 @@
   .event-card{background:var(--white);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s;}
   .event-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(91,45,142,.14);}
   .event-card.featured{border:2px solid var(--green);grid-column:1/-1;}
+  .event-card.job{border:2px solid #b45309;}
+  .event-card.job .event-header{background:linear-gradient(135deg,#92400e,#b45309);}
+  .job-badge{display:inline-block;margin-top:8px;background:rgba(255,255,255,.2);border-radius:4px;padding:3px 10px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:white;}
   .event-header{background:linear-gradient(135deg,var(--purple),var(--purple-light));padding:20px 24px;display:flex;align-items:center;gap:16px;}
   .event-card.featured .event-header{background:linear-gradient(135deg,#1a6e2e,var(--green));}
   .event-date{background:rgba(255,255,255,.2);border-radius:6px;padding:8px 14px;text-align:center;color:white;min-width:56px;}
@@ -327,6 +330,24 @@
           <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
             <a href="vbs.html#register" style="background:var(--green);color:white;padding:12px 28px;border-radius:4px;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s;">&#127956; Register Now</a>
             <a href="vbs.html" style="background:transparent;color:var(--green);padding:12px 20px;border-radius:4px;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:2px solid var(--green);transition:all .2s;">Learn More &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <div class="event-card job">
+        <div class="event-header">
+          <div class="event-date" style="background:rgba(255,255,255,.2);"><div class="event-month" style="font-size:.6rem;">NOW</div><div class="event-day" style="font-size:1rem;line-height:1.2;">HIRING</div></div>
+          <div class="event-header-text">
+            <h3>&#128188; Job Opening &mdash; Office Manager</h3>
+            <span>Part-Time Position &middot; Springfield Church of Christ</span>
+            <div class="job-badge">Now Hiring</div>
+          </div>
+        </div>
+        <div class="event-body">
+          <p>Our church is looking to hire someone to fill a part-time Office Manager position. If you are interested in learning more about this role and the full job description, please see <strong>Mark Myers, Chairman of the Elders</strong>.</p>
+          <div class="event-details">
+            <span class="event-detail-tag">&#128336; Part-Time</span>
+            <span class="event-detail-tag">&#128205; On-Site</span>
+            <span class="event-detail-tag">&#128100; See Mark Myers</span>
           </div>
         </div>
       </div>
