@@ -182,6 +182,45 @@
   @media(max-width:900px){.beliefs-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:768px){nav{padding:0 20px;} .nav-links{display:none;} .about-grid,.contact-grid,.prayer-inner{grid-template-columns:1fr;} .services-days{grid-template-columns:1fr;}}
   @media(max-width:500px){.beliefs-grid{grid-template-columns:1fr;}}
+  .ticker-section{background:var(--white);padding:80px 24px 64px;overflow:hidden;}
+  .ticker-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-bottom:28px;}
+  .ticker-head .section-title{margin-bottom:16px;}
+  .ticker-head .section-divider{margin-bottom:0;}
+  .ticker-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .tk-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;min-width:44px;padding:0 16px;border-radius:50px;border:2px solid rgba(91,45,142,.25);background:var(--white);color:var(--purple-dark);font-family:'Lato',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,background .2s;}
+  .tk-btn:hover{border-color:var(--purple-light);background:#f6f0ff;}
+  .tk-btn[hidden]{display:none;}
+  .tk-btn svg{width:14px;height:14px;fill:currentColor;flex-shrink:0;}
+  .tk-prev,.tk-next{padding:0;}
+  .tk-viewall{display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:4px;background:var(--purple-light);color:var(--white);text-decoration:none;font-weight:700;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:background .2s;}
+  .tk-viewall:hover{background:var(--purple);}
+  .tk-btn:focus-visible,.tk-viewall:focus-visible,.tk-link:focus-visible,.tk-viewport:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+  .tk-viewport{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;overscroll-behavior-x:contain;scroll-behavior:auto;padding:6px 0 26px;border-radius:12px;}
+  .tk-viewport::-webkit-scrollbar{display:none;}
+  .tk-track{display:flex;list-style:none;width:max-content;}
+  .ticker.is-playing .tk-track{will-change:transform;}
+  .ticker.is-static .tk-track{width:100%;justify-content:center;}
+  .ticker:not(.is-static) .tk-viewport{-webkit-mask-image:linear-gradient(to right,transparent,#000 28px,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(to right,transparent,#000 28px,#000 calc(100% - 28px),transparent);}
+  .tk-viewport:focus-visible{outline-offset:-3px;}
+  .ticker.is-static .tk-card:last-child{margin-right:0;}
+  .tk-card{flex:0 0 var(--tk-card-w,300px);width:var(--tk-card-w,300px);margin-right:var(--tk-gap,24px);background:var(--white);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 18px rgba(61,26,110,.12);border:1px solid rgba(91,45,142,.08);}
+  .tk-art{position:relative;height:150px;background:linear-gradient(135deg,var(--c1),var(--c2));display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+  .tk-art::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.5px,transparent 1.6px);background-size:18px 18px;}
+  .tk-art::after{content:'';position:absolute;width:220px;height:220px;right:-70px;bottom:-110px;border-radius:50%;background:rgba(255,255,255,.1);}
+  .tk-art svg{position:relative;z-index:1;width:116px;height:78px;}
+  .tk-art img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;}
+  .tk-art img.contain{object-fit:contain;padding:14px;}
+  .tk-badge{position:absolute;z-index:2;top:14px;left:14px;background:rgba(255,255,255,.95);border-radius:6px;padding:6px 10px;text-align:center;color:var(--c1);min-width:52px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+  .tk-badge-month{display:block;font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;}
+  .tk-badge-day{display:block;font-family:'Cinzel',serif;font-size:1.45rem;font-weight:700;line-height:1;}
+  .tk-body{flex:1;display:flex;flex-direction:column;padding:20px 22px 22px;border-top:4px solid var(--c2);}
+  .tk-when{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c1);margin-bottom:8px;line-height:1.5;}
+  .tk-title{font-family:'Cinzel',serif;font-size:1.08rem;font-weight:700;color:var(--purple-dark);line-height:1.3;margin-bottom:10px;}
+  .tk-desc{font-size:.92rem;line-height:1.6;color:var(--gray-mid);margin-bottom:18px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+  .tk-link{margin-top:auto;align-self:flex-start;color:var(--c1);font-weight:700;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:2px solid var(--c2);padding-bottom:2px;transition:letter-spacing .2s;}
+  .tk-link:hover{letter-spacing:.16em;}
+  .tk-empty{color:var(--gray-mid);font-size:1rem;padding:24px 0;}
+  @media(max-width:600px){.ticker-section{padding:64px 16px 48px;} .tk-art{height:128px;} .tk-body{padding:18px 18px 20px;}}
 </style>
 </head>
 <body>
@@ -220,6 +259,31 @@
     </div>
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<section class="ticker-section" id="upcoming" aria-labelledby="ticker-heading">
+  <div class="section-inner">
+    <div class="ticker-head">
+      <div>
+        <div class="section-label">Mark Your Calendar</div>
+        <h2 class="section-title" id="ticker-heading">Upcoming Events</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="ticker-actions">
+        <button type="button" class="tk-btn tk-prev" aria-label="Previous event" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 2.5 5 8l5.5 5.5 1.4-1.4L7.8 8l4.1-4.1z"/></svg></button>
+        <button type="button" class="tk-btn tk-toggle" aria-label="Pause scrolling events" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path class="tk-icon-pause" d="M3 2h4v12H3zm6 0h4v12H9z"/><path class="tk-icon-play" d="M4 2l10 6-10 6z" style="display:none"/></svg><span class="tk-toggle-text">Pause</span></button>
+        <button type="button" class="tk-btn tk-next" aria-label="Next event" hidden><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 11 8l-5.5 5.5-1.4-1.4L8.2 8 4.1 3.9z"/></svg></button>
+        <a href="#events" class="tk-viewall">View All Events &rarr;</a>
+      </div>
+    </div>
+    <div class="ticker" id="event-ticker">
+      <div class="tk-viewport" role="region" aria-label="Upcoming events (scrollable)" tabindex="0">
+        <ul class="tk-track"></ul>
+      </div>
+      <p class="tk-empty" hidden>No upcoming events right now &mdash; check back soon!</p>
+    </div>
+    <noscript><p class="tk-empty">See our <a href="#services">service times</a> and <a href="#events">all events</a> below.</p></noscript>
+  </div>
 </section>
 
 <section class="services-section" id="services">
@@ -296,7 +360,7 @@
 <section class="events-section" id="events">
   <div class="section-inner">
     <div class="section-label">What's Coming Up</div>
-    <h2 class="section-title">Upcoming Events</h2>
+    <h2 class="section-title">What's Happening</h2>
     <div class="section-divider"></div>
     <div class="events-grid">
       <div class="event-card job">
@@ -542,6 +606,442 @@
     if (monthEl) monthEl.textContent = monthNames[next.getMonth()];
     if (dayEl) dayEl.textContent = next.getDate();
   });
+})();
+</script>
+
+<script>
+/* =====================================================================
+   UPCOMING EVENTS TICKER — edit settings and events here
+   ===================================================================== */
+var TICKER_SPEED = 28;               // Scroll speed in pixels per second. Lower = slower.
+var TICKER_TIMEZONE = 'America/New_York';
+
+/* Each event is one object. Fields:
+     title        Event name (required)
+     description  One or two short sentences (shown up to 3 lines)
+     link         "Learn More" URL — a page (vbs.html), a section (#services), or a full https:// address
+     location     Optional, shown after the time
+     colors       [main, accent] — main is also used for text, so keep it dark enough to read on white
+     art          Built-in illustration: 'bible', 'worship', 'youth', 'students', 'psalms', 'evening', 'star'
+     image        OR a picture/logo file instead of art, e.g. 'true-north-logo.png'
+     imageFit     'cover' (photos, default) or 'contain' (logos)
+
+   When it happens — use ONE of these:
+     One-time:  start: '2026-11-15T17:00', end: '2026-11-15T19:00'
+                Times are Eastern. A date with no time ('2026-11-15') means all day.
+                The card disappears after `end` (or after the start day, if no end).
+     Weekly:    weekly: { day: 0, start: '09:30', end: '10:20' }   (day: 0 = Sunday … 6 = Saturday)
+                `end` is optional; without it only the start time is shown.
+                Optional from: '2026-09-13' / until: '2027-05-30' limit the season.
+
+   Cards are sorted by date automatically — order here doesn't matter. */
+var EVENTS = [
+  {
+    title: 'Sunday Bible Class',
+    weekly: { day: 0, start: '09:30' },
+    description: 'Bible classes for every age before morning worship. Everyone is welcome.',
+    link: '#services',
+    colors: ['#3d1a6e', '#7a3fb5'],
+    art: 'bible'
+  },
+  {
+    title: 'Sunday Morning Worship',
+    weekly: { day: 0, start: '10:30' },
+    location: 'Main Auditorium',
+    description: 'Join us for worship &mdash; come as you are. Also streamed live on YouTube.',
+    link: '#services',
+    colors: ['#1a6e2e', '#3a9c4e'],
+    art: 'worship'
+  },
+  {
+    title: 'C.R.E.W. Youth Group',
+    weekly: { day: 0, start: '17:00', end: '18:00', from: '2026-09-13' },
+    description: 'Sunday evening youth group. All youth are welcome to join in.',
+    link: '#services',
+    colors: ['#a8400b', '#f59e0b'],
+    art: 'youth'
+  },
+  {
+    title: 'Jr. & Sr. High Youth Groups',
+    weekly: { day: 0, start: '17:00', end: '18:00', from: '2026-09-13' },
+    description: 'Youth groups for middle and high school students on Sunday evenings.',
+    link: '#services',
+    colors: ['#0e5a8a', '#22a3d6'],
+    art: 'students'
+  },
+  {
+    title: 'Ladies Bible Study',
+    weekly: { day: 0, start: '17:00' },
+    description: 'The ladies are studying &ldquo;Christ in the Psalms&rdquo; together. All women are welcome.',
+    link: '#services',
+    colors: ['#9d174d', '#e0609a'],
+    art: 'psalms'
+  },
+  {
+    title: 'Wednesday Evening Bible Study',
+    weekly: { day: 3, start: '18:00' },
+    location: 'Fellowship Hall',
+    description: 'Midweek study and prayer. A great opportunity to dig deeper into God&rsquo;s Word together.',
+    link: '#services',
+    colors: ['#1e3a5f', '#4b6cb7'],
+    art: 'evening'
+  },
+  {
+    title: 'True North VBS 2026',
+    start: '2026-06-08T18:00',
+    end: '2026-06-12T20:30',
+    description: 'Five free nights of Bible stories, music, and fun for kids. Dinner at 5:45 PM.',
+    link: 'vbs.html',
+    colors: ['#0f4c5c', '#c9a84c'],
+    image: 'true-north-logo.png',
+    imageFit: 'contain'
+  }
+];
+
+/* ===================================================================== */
+(function () {
+  var root = document.getElementById('event-ticker');
+  if (!root) return;
+  var viewport = root.querySelector('.tk-viewport');
+  var track = root.querySelector('.tk-track');
+  var emptyMsg = root.querySelector('.tk-empty');
+  var section = document.getElementById('upcoming');
+  var toggleBtn = section.querySelector('.tk-toggle');
+  var prevBtn = section.querySelector('.tk-prev');
+  var nextBtn = section.querySelector('.tk-next');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ---------- Built-in illustrations (decorative) ---------- */
+  var ART = {
+    bible: '<path d="M60 18c-10-7-26-9-42-6v52c16-3 32-1 42 6 10-7 26-9 42-6V12c-16-3-32-1-42 6z" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M60 18v52" stroke="#fff" stroke-width="3"/><path d="M28 28h20M28 38h20M28 48h14M72 28h20M72 38h20M72 48h14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>',
+    worship: '<path d="M60 4v14M54 10h12" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="M60 18 40 36v38h40V36z" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M40 46 20 54v20h20M80 46l20 8v20H80" fill="rgba(255,255,255,.1)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M53 74V58a7 7 0 0 1 14 0v16" fill="none" stroke="#fff" stroke-width="3"/><circle cx="60" cy="38" r="5" fill="none" stroke="#fff" stroke-width="2.5"/>',
+    youth: '<circle cx="60" cy="22" r="10" fill="rgba(255,255,255,.25)" stroke="#fff" stroke-width="3"/><path d="M42 72c0-14 8-26 18-26s18 12 18 26" fill="rgba(255,255,255,.18)" stroke="#fff" stroke-width="3"/><circle cx="28" cy="32" r="8" fill="none" stroke="#fff" stroke-width="3"/><path d="M14 72c0-11 6-22 14-22 5 0 8 3 10 6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="92" cy="32" r="8" fill="none" stroke="#fff" stroke-width="3"/><path d="M106 72c0-11-6-22-14-22-5 0-8 3-10 6" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>',
+    students: '<path d="M60 10 14 30l46 20 46-20z" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M32 38v18c8 8 20 12 28 12s20-4 28-12V38" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M100 33v22" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="59" r="4" fill="#fff"/>',
+    psalms: '<path d="M36 70c-8-20-6-44 6-60M84 70c8-20 6-44-6-60" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><path d="M42 10c10 6 26 6 36 0" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/><path d="M32 70h56" stroke="#fff" stroke-width="4" stroke-linecap="round"/><path d="M50 14v56M60 15v55M70 14v56" stroke="#fff" stroke-width="2" opacity=".85"/><path d="M42 40c6-4 30-4 36 0" fill="rgba(255,255,255,.12)" stroke="none"/>',
+    evening: '<path d="M70 10a30 30 0 1 0 28 40A24 24 0 0 1 70 10z" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/><path d="M26 20l2 6 6 2-6 2-2 6-2-6-6-2 6-2zM100 14l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5zM20 56l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#fff"/>',
+    star: '<path d="M60 6l14 30 32 4-24 22 6 32-28-16-28 16 6-32L14 40l32-4z" fill="rgba(255,255,255,.2)" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>'
+  };
+
+  /* ---------- Eastern-time helpers ---------- */
+  var partsFmt = new Intl.DateTimeFormat('en-US', { timeZone: TICKER_TIMEZONE, hourCycle: 'h23',
+    year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+  function zoneParts(ts) {
+    var p = {};
+    partsFmt.formatToParts(new Date(ts)).forEach(function (x) { if (x.type !== 'literal') p[x.type] = +x.value; });
+    if (p.hour === 24) p.hour = 0;
+    return p;
+  }
+  function zoneOffset(ts) {
+    var p = zoneParts(ts);
+    return Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second) - Math.floor(ts / 1000) * 1000;
+  }
+  // Eastern wall-clock time -> timestamp
+  function zoneTime(y, mo, d, h, mi) {
+    var guess = Date.UTC(y, mo - 1, d, h || 0, mi || 0);
+    return guess - zoneOffset(guess - zoneOffset(guess));
+  }
+  function parseDate(str) { return str.split(/[-T:]/).map(Number); }
+  function parseLocal(str, endOfDay) {
+    var n = parseDate(str);
+    if (n.length < 4) return endOfDay ? zoneTime(n[0], n[1], n[2] + 1, 0, 0) - 1 : zoneTime(n[0], n[1], n[2], 0, 0);
+    return zoneTime(n[0], n[1], n[2], n[3], n[4]);
+  }
+  function dayKey(ts) { var p = zoneParts(ts); return p.year * 10000 + p.month * 100 + p.day; }
+
+  function nextWeekly(w, from, until, now) {
+    var p = zoneParts(now);
+    var base = Date.UTC(p.year, p.month - 1, p.day);
+    if (from) { var f = parseDate(from); base = Math.max(base, Date.UTC(f[0], f[1] - 1, f[2])); }
+    var s = w.start.split(':').map(Number), e = (w.end || w.start).split(':').map(Number);
+    var diff = (w.day - new Date(base).getUTCDay() + 7) % 7;
+    for (var k = 0; k < 2; k++) {
+      var d = new Date(base + (diff + 7 * k) * 864e5);
+      var y = d.getUTCFullYear(), mo = d.getUTCMonth() + 1, dd = d.getUTCDate();
+      var start = zoneTime(y, mo, dd, s[0], s[1]), end = zoneTime(y, mo, dd, e[0], e[1]);
+      if (until && start > parseLocal(until, true)) return null;
+      // with no end time, keep showing the card for an hour after it starts
+      if ((w.end ? end : start + 36e5) > now) return { start: start, end: end, timed: true, showEnd: !!w.end };
+    }
+    return null;
+  }
+
+  function upcomingEvents(now) {
+    var list = [];
+    EVENTS.forEach(function (ev, i) {
+      var when;
+      if (ev.weekly) {
+        when = nextWeekly(ev.weekly, ev.from || ev.weekly.from, ev.until || ev.weekly.until, now);
+      } else if (ev.start) {
+        var timed = ev.start.indexOf('T') > -1;
+        when = { start: parseLocal(ev.start), end: parseLocal(ev.end || ev.start.split('T')[0], true), timed: timed, showEnd: !!ev.end && ev.end.indexOf('T') > -1 };
+        if (when.end < now) when = null;
+      }
+      if (when) list.push({ ev: ev, when: when, order: i });
+    });
+    return list.sort(function (a, b) { return a.when.start - b.when.start || a.order - b.order; });
+  }
+
+  /* ---------- Formatting ---------- */
+  var fmtDay = new Intl.DateTimeFormat('en-US', { timeZone: TICKER_TIMEZONE, weekday: 'short', month: 'short', day: 'numeric' });
+  var fmtShort = new Intl.DateTimeFormat('en-US', { timeZone: TICKER_TIMEZONE, month: 'short', day: 'numeric' });
+  var fmtTime = new Intl.DateTimeFormat('en-US', { timeZone: TICKER_TIMEZONE, hour: 'numeric', minute: '2-digit' });
+  var fmtMonth = new Intl.DateTimeFormat('en-US', { timeZone: TICKER_TIMEZONE, month: 'short' });
+  var fmtNum = new Intl.DateTimeFormat('en-US', { timeZone: TICKER_TIMEZONE, day: 'numeric' });
+  var fmtIso = new Intl.DateTimeFormat('en-CA', { timeZone: TICKER_TIMEZONE, year: 'numeric', month: '2-digit', day: '2-digit' });
+
+  function dayLabel(ts, now) {
+    var k = dayKey(ts);
+    if (k === dayKey(now)) return 'Today';
+    if (k === dayKey(now + 864e5)) return 'Tomorrow';
+    return fmtDay.format(ts);
+  }
+  function whenLabel(w, now) {
+    var multiDay = dayKey(w.start) !== dayKey(w.end);
+    var date = multiDay ? fmtShort.format(w.start) + ' &ndash; ' + fmtShort.format(w.end) : dayLabel(w.start, now);
+    if (!w.timed) return date;
+    var t1 = fmtTime.format(w.start), t2 = fmtTime.format(w.end);
+    if (!w.showEnd || t1 === t2) return date + ' &middot; ' + t1;
+    var mer = /\s?[AP]M$/;
+    if (t1.match(mer)[0].trim() === t2.match(mer)[0].trim()) t1 = t1.replace(mer, '');
+    return date + ' &middot; ' + t1 + '&ndash;' + t2;
+  }
+  function escAttr(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+  function cardHTML(item, now) {
+    var ev = item.ev, w = item.when;
+    var colors = ev.colors || ['#3d1a6e', '#7a3fb5'];
+    var art = ev.image
+      ? '<img src="' + escAttr(ev.image) + '" alt="" loading="lazy"' + (ev.imageFit === 'contain' ? ' class="contain"' : '') + '>'
+      : '<svg viewBox="0 0 120 80" aria-hidden="true" focusable="false">' + (ART[ev.art] || ART.star) + '</svg>';
+    var plainTitle = ev.title.replace(/&[a-z]+;/g, ' ').replace(/<[^>]*>/g, '');
+    return '<li class="tk-card" style="--c1:' + colors[0] + ';--c2:' + colors[1] + '">' +
+      '<div class="tk-art">' + art +
+        '<span class="tk-badge" aria-hidden="true"><span class="tk-badge-month">' + fmtMonth.format(w.start) + '</span><span class="tk-badge-day">' + fmtNum.format(w.start) + '</span></span>' +
+      '</div>' +
+      '<div class="tk-body">' +
+        '<p class="tk-when"><time datetime="' + fmtIso.format(w.start) + '">' + whenLabel(w, now) + '</time>' + (ev.location ? ' &middot; ' + ev.location : '') + '</p>' +
+        '<h3 class="tk-title">' + ev.title + '</h3>' +
+        '<p class="tk-desc">' + (ev.description || '') + '</p>' +
+        (ev.link ? '<a class="tk-link" href="' + escAttr(ev.link) + '"' + (/^https?:/.test(ev.link) ? ' target="_blank" rel="noopener"' : '') +
+          ' aria-label="Learn more about ' + escAttr(plainTitle) + '">Learn More &rarr;</a>' : '') +
+      '</div></li>';
+  }
+
+  /* ---------- Ticker engine ---------- */
+  var originals = [];          // the real (accessible) cards
+  var setWidth = 0;            // width of one full set of cards incl. gaps
+  var animated = false;        // true when the row overflows and motion is allowed
+  var playing = false;
+  var x = 0;                   // current offset; kept within [setWidth, 2*setWidth) while looping
+  var rafId = 0, lastTs = null, touchTimer = 0;
+  var paused = { user: false, hover: false, focus: false, touch: false, offscreen: false };
+  var signature = '';
+
+  function render() {
+    var now = Date.now();
+    var items = upcomingEvents(now);
+    var sig = items.map(function (it) { return it.order + ':' + it.when.start + ':' + dayKey(now); }).join('|');
+    if (sig === signature) return false;
+    signature = sig;
+    track.innerHTML = items.map(function (it) { return cardHTML(it, now); }).join('');
+    originals = Array.prototype.slice.call(track.children);
+    viewport.hidden = !items.length;
+    emptyMsg.hidden = !!items.length;
+    return true;
+  }
+
+  function cloneSet() {
+    var frag = document.createDocumentFragment();
+    originals.forEach(function (card) {
+      var c = card.cloneNode(true);
+      c.classList.add('tk-clone');
+      c.setAttribute('aria-hidden', 'true');
+      c.setAttribute('inert', '');
+      c.querySelectorAll('a, button, [tabindex]').forEach(function (el) { el.setAttribute('tabindex', '-1'); });
+      frag.appendChild(c);
+    });
+    return frag;
+  }
+
+  function wrapX(v) {
+    if (!setWidth) return 0;
+    var r = ((v - setWidth) % setWidth + setWidth) % setWidth;
+    return setWidth + r;
+  }
+
+  function layout() {
+    stopLoop();
+    if (animated) x = wrapX(viewport.scrollLeft);
+    var ratio = animated && setWidth ? (x - setWidth) / setWidth : 0;
+    track.style.transform = '';
+    track.querySelectorAll('.tk-clone').forEach(function (c) { c.remove(); });
+
+    var vw = viewport.clientWidth;
+    var perView = vw >= 900 ? 3 : vw >= 560 ? 2 : 1.15;
+    var gap = vw >= 560 ? 24 : 16;
+    var cardW = Math.floor((vw - gap * (Math.ceil(perView) - 1)) / perView);
+    root.style.setProperty('--tk-card-w', cardW + 'px');
+    root.style.setProperty('--tk-gap', gap + 'px');
+
+    var n = originals.length;
+    setWidth = n * (cardW + gap);
+    var fits = n * cardW + (n - 1) * gap <= vw + 1;
+    animated = n > 0 && !fits && !reduceMotion.matches;
+
+    root.classList.toggle('is-static', fits);
+    toggleBtn.hidden = !animated;
+    prevBtn.hidden = nextBtn.hidden = fits || !n;
+    viewport.setAttribute('aria-label', fits ? 'Upcoming events' : 'Upcoming events (scrollable)');
+    if (fits) viewport.removeAttribute('tabindex'); else viewport.setAttribute('tabindex', '0');
+
+    if (animated) {
+      // [clone set][real set][clone sets…] so there is always room to loop in both directions
+      track.insertBefore(cloneSet(), track.firstChild);
+      var after = Math.ceil(vw / setWidth) + 1;
+      for (var i = 0; i < after; i++) track.appendChild(cloneSet());
+      x = setWidth + ratio * setWidth;
+      viewport.scrollLeft = x;
+    } else {
+      viewport.scrollLeft = 0;
+    }
+    update();
+  }
+
+  function shouldPlay() {
+    return animated && !paused.user && !paused.hover && !paused.focus && !paused.touch && !paused.offscreen && !document.hidden;
+  }
+
+  function step(ts) {
+    if (lastTs !== null) {
+      x += TICKER_SPEED * Math.min(ts - lastTs, 100) / 1000;
+      if (x >= 2 * setWidth) x -= setWidth;
+    }
+    lastTs = ts;
+    track.style.transform = 'translate3d(' + (-x).toFixed(2) + 'px,0,0)';
+    rafId = requestAnimationFrame(step);
+  }
+
+  function stopLoop() {
+    if (!playing) return;
+    cancelAnimationFrame(rafId);
+    playing = false;
+    root.classList.remove('is-playing');
+    // Hand the current position over to native scrolling so it can be swiped / scrolled by hand
+    track.style.transform = '';
+    viewport.scrollLeft = x;
+  }
+
+  function update() {
+    var play = shouldPlay();
+    if (play && !playing) {
+      x = wrapX(viewport.scrollLeft);
+      viewport.scrollLeft = 0;
+      playing = true;
+      lastTs = null;
+      root.classList.add('is-playing');
+      track.style.transform = 'translate3d(' + (-x) + 'px,0,0)';
+      rafId = requestAnimationFrame(step);
+    } else if (!play && playing) {
+      stopLoop();
+    }
+  }
+
+  function setUserPaused(p) {
+    paused.user = p;
+    toggleBtn.querySelector('.tk-toggle-text').textContent = p ? 'Play' : 'Pause';
+    toggleBtn.setAttribute('aria-label', (p ? 'Play' : 'Pause') + ' scrolling events');
+    toggleBtn.querySelector('.tk-icon-pause').style.display = p ? 'none' : '';
+    toggleBtn.querySelector('.tk-icon-play').style.display = p ? '' : 'none';
+    update();
+  }
+
+  function stepBy(dir) {
+    if (animated && !paused.user) setUserPaused(true);
+    stopLoop();
+    var cardStep = originals[0] ? originals[0].getBoundingClientRect().width + parseFloat(getComputedStyle(originals[0]).marginRight) : 300;
+    if (animated) {
+      var max = viewport.scrollWidth - viewport.clientWidth;
+      if (viewport.scrollLeft + dir * cardStep < 1) viewport.scrollLeft += setWidth;
+      else if (viewport.scrollLeft + dir * cardStep > max - 1) viewport.scrollLeft -= setWidth;
+    }
+    viewport.scrollBy({ left: dir * cardStep, behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+  }
+
+  /* Pause / play controls */
+  toggleBtn.addEventListener('click', function () { setUserPaused(!paused.user); });
+  prevBtn.addEventListener('click', function () { stepBy(-1); });
+  nextBtn.addEventListener('click', function () { stepBy(1); });
+
+  /* Pause on mouse hover */
+  viewport.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { paused.hover = true; update(); } });
+  viewport.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { paused.hover = false; update(); } });
+
+  /* Pause while keyboard focus is inside */
+  viewport.addEventListener('focusin', function (e) {
+    paused.focus = true;
+    update();
+    var card = e.target.closest && e.target.closest('.tk-card');
+    if (card) {
+      var vr = viewport.getBoundingClientRect(), cr = card.getBoundingClientRect();
+      if (cr.left < vr.left) viewport.scrollLeft -= vr.left - cr.left;
+      else if (cr.right > vr.right) viewport.scrollLeft += cr.right - vr.right;
+    }
+  });
+  viewport.addEventListener('focusout', function (e) {
+    if (!viewport.contains(e.relatedTarget)) { paused.focus = false; update(); }
+  });
+
+  /* Touch: pause while swiping, resume a few seconds after the finger lifts */
+  function scheduleTouchResume() {
+    clearTimeout(touchTimer);
+    touchTimer = setTimeout(function () { paused.touch = false; update(); }, 3000);
+  }
+  viewport.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse') return;
+    clearTimeout(touchTimer);
+    paused.touch = true;
+    update();
+  });
+  viewport.addEventListener('pointerup', function (e) { if (e.pointerType !== 'mouse') scheduleTouchResume(); });
+  viewport.addEventListener('pointercancel', function (e) { if (e.pointerType !== 'mouse') scheduleTouchResume(); });
+
+  /* While paused, keep manual scrolling endless by jumping between identical sets at the edges */
+  viewport.addEventListener('scroll', function () {
+    if (paused.touch && touchTimer) scheduleTouchResume();
+    if (playing || !animated) return;
+    var max = viewport.scrollWidth - viewport.clientWidth;
+    if (viewport.scrollLeft < 1) viewport.scrollLeft += setWidth;
+    else if (viewport.scrollLeft > max - 1) viewport.scrollLeft -= setWidth;
+  }, { passive: true });
+
+  /* Don't animate when off-screen or in a background tab */
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      paused.offscreen = !entries[0].isIntersecting;
+      update();
+    }).observe(viewport);
+  }
+  document.addEventListener('visibilitychange', update);
+
+  /* Re-layout on resize and when the reduced-motion setting changes */
+  var lastWidth = 0, resizeRaf = 0;
+  function onResize() {
+    cancelAnimationFrame(resizeRaf);
+    resizeRaf = requestAnimationFrame(function () {
+      if (viewport.clientWidth === lastWidth) return;
+      lastWidth = viewport.clientWidth;
+      layout();
+    });
+  }
+  if ('ResizeObserver' in window) new ResizeObserver(onResize).observe(root); else window.addEventListener('resize', onResize);
+  if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', layout);
+
+  /* Drop events as they end (checked every minute) */
+  setInterval(function () { if (render()) layout(); }, 60000);
+
+  render();
+  lastWidth = viewport.clientWidth;
+  layout();
 })();
 </script>
 
