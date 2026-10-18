@@ -300,8 +300,8 @@
         <div class="day-services">
           <div class="service-row"><div class="service-time-badge">9:30 AM</div><div class="service-desc"><strong>Bible Class</strong><span>All ages welcome</span></div></div>
           <div class="service-row"><div class="service-time-badge">10:30 AM</div><div class="service-desc"><strong>Morning Worship</strong><span>Also streamed live on YouTube</span></div></div>
-          <div class="service-row"><div class="service-time-badge">5:00&ndash;6:00 PM</div><div class="service-desc"><strong>C.R.E.W.</strong><span>Youth group &mdash; all youth welcome &middot; Starts back up Sept. 13</span></div></div>
-          <div class="service-row"><div class="service-time-badge">5:00&ndash;6:00 PM</div><div class="service-desc"><strong>Jr. &amp; Sr. High Youth Groups</strong><span>Middle &amp; high school students &middot; Starts back up Sept. 13</span></div></div>
+          <div class="service-row"><div class="service-time-badge">5:00&ndash;6:00 PM</div><div class="service-desc"><strong>C.R.E.W.</strong><span>Youth group &mdash; all youth welcome</span></div></div>
+          <div class="service-row"><div class="service-time-badge">5:00&ndash;6:00 PM</div><div class="service-desc"><strong>Jr. &amp; Sr. High Youth Groups</strong><span>Middle &amp; high school students<span data-hide-after="2026-10-18"><br>No youth group Sun., Oct. 18 &mdash; returns Oct. 25</span></span></div></div>
           <div class="service-row"><div class="service-time-badge">5:00 PM</div><div class="service-desc"><strong>Ladies Bible Study</strong><span>Christ in the Psalms</span></div></div>
         </div>
       </div>
@@ -648,6 +648,7 @@ var TICKER_TIMEZONE = 'America/New_York';
      Weekly:    weekly: { day: 0, start: '09:30', end: '10:20' }   (day: 0 = Sunday … 6 = Saturday)
                 `end` is optional; without it only the start time is shown.
                 Optional from: '2026-09-13' / until: '2027-05-30' limit the season.
+                Optional skip: ['2026-10-18'] cancels specific dates; the card shows the next one instead.
 
    Cards are sorted by date automatically — order here doesn't matter. */
 var EVENTS = [
@@ -679,6 +680,7 @@ var EVENTS = [
   {
     title: 'Jr. & Sr. High Youth Groups',
     weekly: { day: 0, start: '17:00', end: '18:00', from: '2026-09-13' },
+    skip: ['2026-10-18'],
     description: 'Youth groups for middle and high school students on Sunday evenings.',
     link: '#services',
     colors: ['#0e5a8a', '#22a3d6'],
@@ -773,14 +775,15 @@ var EVENTS = [
   }
   function dayKey(ts) { var p = zoneParts(ts); return p.year * 10000 + p.month * 100 + p.day; }
 
-  function nextWeekly(w, from, until, now) {
+  function nextWeekly(w, from, until, skip, now) {
     var p = zoneParts(now);
     var base = Date.UTC(p.year, p.month - 1, p.day);
     if (from) { var f = parseDate(from); base = Math.max(base, Date.UTC(f[0], f[1] - 1, f[2])); }
     var s = w.start.split(':').map(Number), e = (w.end || w.start).split(':').map(Number);
     var diff = (w.day - new Date(base).getUTCDay() + 7) % 7;
-    for (var k = 0; k < 2; k++) {
+    for (var k = 0; k < 8; k++) {
       var d = new Date(base + (diff + 7 * k) * 864e5);
+      if (skip && skip.indexOf(d.toISOString().slice(0, 10)) > -1) continue;
       var y = d.getUTCFullYear(), mo = d.getUTCMonth() + 1, dd = d.getUTCDate();
       var start = zoneTime(y, mo, dd, s[0], s[1]), end = zoneTime(y, mo, dd, e[0], e[1]);
       if (until && start > parseLocal(until, true)) return null;
@@ -795,7 +798,7 @@ var EVENTS = [
     EVENTS.forEach(function (ev, i) {
       var when;
       if (ev.weekly) {
-        when = nextWeekly(ev.weekly, ev.from || ev.weekly.from, ev.until || ev.weekly.until, now);
+        when = nextWeekly(ev.weekly, ev.from || ev.weekly.from, ev.until || ev.weekly.until, ev.skip || ev.weekly.skip, now);
       } else if (ev.start) {
         var timed = ev.start.indexOf('T') > -1;
         when = { start: parseLocal(ev.start), end: parseLocal(ev.end || ev.start.split('T')[0], true), timed: timed, showEnd: !!ev.end && ev.end.indexOf('T') > -1 };
